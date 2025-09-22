@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>題目七：字串去左右空白</title>
+</head>
+
+<body>
+    <h2>題目七：字串去左右空白</h2>
+    <pre style="background-color: lightblue;">
+// input 輸入
+trimString("    hi, mom!  ")
+trimString(" aa@gmail.com  ")
+
+// output 輸出
+"hi, mom!"
+"aa@gmail.com"
+    </pre>
+
+    <script>
+        function trimString(str) {
+            str = str.trim();
+            if (str.length > 0) {//不是NaN時才運算              
+                return str.trim();
+            } else {
+                console.log('無帶入文字');
+            }
+        }      
+        console.log(trimString("    hi, mom!  "));
+        console.log(trimString(" aa@gmail.com  "));
+    </script>
+</body>
+
+</html>

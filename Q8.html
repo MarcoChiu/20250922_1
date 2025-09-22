@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>題目八：字串切割</title>
+</head>
+
+<body>
+    <h2>題目八：字串切割</h2>
+    <pre style="background-color: lightblue;">
+// input 輸入
+getArea("高雄市前鎮區一心二路33號");
+getArea("高雄市新興區新興路66號");
+
+// output 輸出
+"前鎮區"
+"新興區"
+    </pre>
+
+    <script>
+        getArea("高雄市前鎮區一心二路33號");
+        getArea("高雄市新興區新興路66號");
+
+        function getCity(str) {
+            console.log(getFull(str)[0]);
+        }
+
+        function getArea(str) {
+            console.log(getFull(str)[1]);
+        }
+
+        function getAdress(str) {
+            console.log(getFull(str)[2]);
+        }
+
+        //有點醜但好像還可以
+        function getFull(str) {
+            let result = [];
+
+            //############縣市############
+            let ar1 = Array.from(str);
+            let cityName = '';
+            const city1 = '市';
+            const city2 = '縣';
+            if (str.indexOf(city1) > 0) {
+                cityName = ar1.slice(0, ar1.indexOf(city1) + 1).join('');
+            } else if (str.indexOf(city2) > 0) {
+                cityName = ar1.slice(0, ar1.indexOf(city2) + 1).join('');
+            }
+            //console.log(cityName);//高雄市
+            result[0] = cityName;
+            //############縣市 end############
+
+            //############鄉鎮縣市############
+            let ar2 = Array.from(str.replace(cityName, ''));//前鎮縣一心二路33號(去掉縣市的文字)
+            //console.log(ar2);
+            let countryName = '';
+            const country1 = '鄉';
+            const country2 = '鎮';
+            const country3 = '市';
+            const country4 = '區';
+
+            //console.log(tempCountry);
+
+            if (ar2.indexOf(country4) > 0) {//會有平鎮 前鎮問題所以放前面
+                countryName = ar2.slice(0, ar2.indexOf(country4) + 1).join('');
+            } else if (ar2.indexOf(country1) > 0) {
+                countryName = ar2.slice(0, ar2.indexOf(country1) + 1).join('');
+            } else if (ar2.indexOf(country2) > 0) {
+                countryName = ar2.slice(0, ar2.indexOf(country2) + 1).join('');
+            } else if (ar2.indexOf(country3) > 0) {
+                countryName = ar2.slice(0, ar2.indexOf(country3) + 1).join('');
+            }
+            //console.log(countryName);//前鎮區
+            result[1] = countryName;
+            //############鄉鎮縣市 end############
+
+            //############地址############
+            let str3 = str.replace(cityName, '').replace(countryName, '');//一心二路33號(去掉縣市的文字)             
+            //console.log(str3);//前鎮區
+            result[2] = str3;
+            //############地址 end############
+
+            return result;
+        }
+    </script>
+</body>
+
+</html>

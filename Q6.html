@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>題目六：字串大小寫互換</title>
+</head>
+
+<body>
+    <h2>題目六：字串大小寫互換</h2>
+    <pre style="background-color: lightblue;">
+// input 輸入
+lowerCase("FOKFF@gmail.com")
+upperCase("hello, world")
+
+// output 輸出
+"fokff@gmail.com"
+"HELLO, WORLD"
+    </pre>
+
+    <script>
+        function lowerCase(str) {
+            if (str.length > 0) {//不是NaN時才運算              
+                return str.toLowerCase()
+            } else {
+                console.log('無帶入文字');
+            }
+        }
+
+        function upperCase(str) {
+            if (str.length > 0) {//不是NaN時才運算              
+                return str.toUpperCase()
+            } else {
+                console.log('無帶入文字');
+            }
+        }
+
+        console.log(lowerCase("FOKFF@gmail.com"));
+        console.log(upperCase("hello, world"));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>題目九：擷取字串內容</title>
+</head>
+
+<body>
+    <h2>題目九：擷取字串內容</h2>
+    <pre style="background-color: lightblue;">
+// input 輸入
+const input = "Hello"
+getCharacter(input, 1)
+getCharacter(input, 3)
+getCharacter(input, 10)
+
+// output 輸出
+"H"
+"l"
+false
+    </pre>
+
+    <script>
+        function getCharacter(str, character) {
+            if (str.length > 0) {
+                if (parseInt(character) > str.length) {
+                    console.log(false);
+                } else {
+                    console.log(str[character - 1]);
+                }
+            }
+            else {
+                console.log('無帶入文字');
+            }
+        }
+        const input = "Hello"
+        getCharacter(input, 1);
+        getCharacter(input, 3);
+        getCharacter(input, 10);
+    </script>
+</body>
+
+</html>
