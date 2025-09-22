@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>題目二：取 2 的餘數 + 判斷是否可整除 (% + 結果判斷)</title>
+</head>
+
+<body>
+    <h2>題目二：取 2 的餘數 + 判斷是否可整除 (% + 結果判斷)</h2>
+    <pre>
+    // input 輸入
+    isDivisible(3);
+    isDivisible(2);
+    isDivisible(8);
+
+    // output 輸出
+    未整除
+    已整除
+    已整除
+    </pre>
+
+    <script>
+        function isDivisible(i) {          
+            if (!isNaN(i)) {//不是NaN時才運算                                
+                const remainder = i % 2;
+                if (remainder == 0) {
+                    console.log('未整除');
+                } else {
+                    console.log('已整除');
+                }
+            } else {
+                console.log(i + '-數字有問題無法運算');
+            }
+        }
+
+        isDivisible(3);
+        isDivisible(2);
+        isDivisible(8);
+        isDivisible('哈');
+    </script>
+</body>
+
+</html>

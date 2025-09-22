@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>題目三：簡單計算機</title>
+</head>
+
+<body>
+    <h2>題目三：簡單計算機</h2>
+    <pre>
+    // input 輸入
+    calculate(3,5,'+');
+    calculate(4,2,'-');
+    calculate(7,9,'*');
+    calculate(5,5,'/');
+
+    // output 輸出
+    8
+    2
+    63
+    1
+    </pre>
+
+    <script>
+        function calculate(f, s, c) {
+
+            if (isNaN(f) || isNaN(s)) {
+                console.log(f + ',' + s + '-數字有問題無法運算');
+                return;
+            }
+
+            const basicOperations = ['+', '-', '*', '/'];
+            if (!basicOperations.includes(c)) {
+                console.log(c + '-基礎符號有問題無法運算');
+                return;
+            }
+
+            switch (c) {
+                case "+":
+                    console.log(f + s);
+                    break;
+                case "-":
+                    console.log(f - s);
+                    break;
+                case "*":
+                    console.log(f * s); 
+                    break;
+                case "/":
+                    console.log(f / s);
+                    break;
+            }
+        }
+        
+
+        calculate(3, 5, '+');
+        calculate(4, 2, '-');
+        calculate(7, 9, '*');
+        calculate(5, 5, '/');
+        calculate(9, 'a', '+');
+        calculate(6, 5, 's');
+    </script>
+</body>
+
+</html>

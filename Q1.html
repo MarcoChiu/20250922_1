@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>題目一：相乘三次 (*)</title>
+</head>
+
+<body>
+    <h2>題目一：相乘三次 (*)</h2>
+    <pre>
+    // input 輸入
+    multiply3Times(3);
+    multiply3Times(0);
+    multiply3Times(9);
+
+    // output 輸出
+    27
+    0
+    729
+    </pre>
+
+    <script>
+        function multiply3Times(i) {            
+            if (!isNaN(i)) {//不是NaN時才運算              
+                console.log(i * i * i);
+            } else {
+                console.log(i + '-數字有問題無法運算');
+            }
+        }        
+        multiply3Times(3);
+        multiply3Times(0);
+        multiply3Times(9);
+        multiply3Times('哈');
+    </script>
+</body>
+
+</html>
