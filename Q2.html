@@ -9,22 +9,22 @@
 
 <body>
     <h2>題目二：取 2 的餘數 + 判斷是否可整除 (% + 結果判斷)</h2>
-    <pre>
-    // input 輸入
-    isDivisible(3);
-    isDivisible(2);
-    isDivisible(8);
+    <pre style="background-color: lightblue;">
+// input 輸入
+isDivisible(3);
+isDivisible(2);
+isDivisible(8);
 
-    // output 輸出
-    未整除
-    已整除
-    已整除
+// output 輸出
+未整除
+已整除
+已整除
     </pre>
 
     <script>
-        function isDivisible(i) {          
-            if (!isNaN(i)) {//不是NaN時才運算                                
-                const remainder = i % 2;
+        function isDivisible(num) {          
+            if (!isNaN(num)) {//不是NaN時才運算                                
+                const remainder = num % 2;
                 if (remainder == 0) {
                     console.log('未整除');
                 } else {

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>題目四：商業邏輯題：增加服務費</title>
+</head>
+
+<body>
+    <h2>題目四：商業邏輯題：增加服務費</h2>
+    <p>六角冰果店即將開張，但發現收銀機漏寫服務費邏輯，還請協助撰寫：</p>
+    <p>一個 serviceCharge函式，來計算 5% 服務費並回傳總計費用為多少。</p>
+    <p>情境：小華吃了一碗冰，小計 100 元，加上服務費為 105 元。</p>
+    <pre style="background-color: lightblue;">
+<!-- 作答開始 -->
+function serviceCharge(num){}
+<!-- 作答結束  -->
+const total = serviceCharge(100);
+console.log(`您總計費用為 ${total}`)
+    </pre>
+
+    <script>
+        function serviceCharge(num) {
+            if (!isNaN(num)) {//不是NaN時才運算    
+                const servicePer = 0.05;
+                let servicePay = Math.floor(num * servicePer);
+                 console.log(`消費${num}服務費為${servicePay}`)
+                return num + servicePay;
+            } else {
+                console.log(num + '-數字有問題無法運算');
+            }
+        }
+        const total = serviceCharge(100);
+        console.log(`您總計費用為 ${total}`)
+    </script>
+</body>
+
+</html>
