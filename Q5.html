@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>題目五：重構題：消除重複，抽離變因</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -17,7 +18,7 @@
     <p>sixAngleCalculate、eightAngleCalculate 丟入 num 冰碗數量，就可獲得總費用</p>
     <p>重構思路</p>
     <p>兩個函式裡面的服務費都是一樣的，可以嘗試抽出來成一個新函式 serviceCharge，專門來計算兩間店的服務費</p>
-    <pre style="background-color: lightblue;">
+   <pre class="prettyprint">
 // 第一個參數為冰的數量
 function sixAngleCalculate(num){
   const subTotal = num * 100;
@@ -35,6 +36,42 @@ function eightAngleCalculate(num){
 }
     </pre>
 
+
+    <h2>回答:</h2>
+    <pre class="prettyprint">
+        //計算服務費
+        function serviceCharge(num) {
+            if (!isNaN(num)) {//不是NaN時才運算    
+                const servicePer = 0.1;
+                let servicePay = Math.floor(num * servicePer);
+                console.log(`消費${num}服務費為${servicePay}`)
+                return servicePay;
+            } else {
+                console.log(num + '-數字有問題無法運算');
+            }
+        }
+
+        //六角
+        function sixAngleCalculate(num) {
+            const subTotal = num * 100;
+            return subTotal + serviceCharge(subTotal);
+        }
+
+        //八角
+        function eightAngleCalculate(num) {
+            const subTotal = num * 800;
+            return subTotal + serviceCharge(subTotal);
+        }
+
+        //六角
+        let sixTotal = sixAngleCalculate(5);
+        console.log(`六角冰店消費 您總計費用為 ${sixTotal}`);
+
+        //八角
+        let eightTotal = eightAngleCalculate(5);
+        console.log(`八角冰店消費 您總計費用為 ${eightTotal}`);
+
+    </pre>
     <script>
         //計算服務費
         function serviceCharge(num) {
@@ -70,6 +107,8 @@ function eightAngleCalculate(num){
 
 
     </script>
+     <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+
 </body>
 
 </html>

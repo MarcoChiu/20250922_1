@@ -5,16 +5,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>題目十：反轉字串</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <h2>題目十：反轉字串</h2>
-    <pre style="background-color: lightblue;">
+    <pre class="prettyprint">
 // input 輸入
 stringReverser("hello")
 
 // output 輸出
 olleh
+    </pre>
+
+    <h2>回答:</h2>
+    <pre class="prettyprint">
+        function stringReverser(str) {
+            if (str.length > 0) {
+                //AI教的
+                //https://www.freecodecamp.org/chinese/news/how-to-reverse-a-string-in-javascript-in-3-different-ways/這邊也有
+                // Step 1: 使用 split('') 將字串轉換為字元陣列
+                const charArray = str.split('');
+                // Step 2: 使用 reverse() 方法反轉陣列
+                const reversedArray = charArray.reverse();
+                // Step 3: 使用 join('') 將陣列組合成字串
+                const reversedString = reversedArray.join('');
+                console.log(reversedString);
+                //簡潔 
+                console.log(str.split("").reverse().join(""));
+
+            }
+            else {
+                console.log('無帶入文字');
+            }
+        }
+        stringReverser("hello");
     </pre>
 
     <script>
@@ -39,6 +64,8 @@ olleh
         }
         stringReverser("hello");
     </script>
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+ 
 </body>
 
 </html>

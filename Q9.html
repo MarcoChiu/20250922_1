@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>題目九：擷取字串內容</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <h2>題目九：擷取字串內容</h2>
-    <pre style="background-color: lightblue;">
+  <pre class="prettyprint">
 // input 輸入
 const input = "Hello"
 getCharacter(input, 1)
@@ -20,6 +21,26 @@ getCharacter(input, 10)
 "H"
 "l"
 false
+    </pre>
+
+    <h2>回答:</h2>
+    <pre class="prettyprint">
+        function getCharacter(str, character) {
+            if (str.length > 0) {
+                if (parseInt(character) > str.length) {
+                    console.log(false);
+                } else {
+                    console.log(str[character - 1]);
+                }
+            }
+            else {
+                console.log('無帶入文字');
+            }
+        }
+        const input = "Hello"
+        getCharacter(input, 1);
+        getCharacter(input, 3);
+        getCharacter(input, 10);
     </pre>
 
     <script>
@@ -40,6 +61,8 @@ false
         getCharacter(input, 3);
         getCharacter(input, 10);
     </script>
+     <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+
 </body>
 
 </html>
