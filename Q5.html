@@ -5,20 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>題目五：重構題：消除重複，抽離變因</title>
-<link rel="stylesheet" href="./css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="./css/style.css" rel="stylesheet">
 </head>
 
 <body>
-    <h2>題目五：重構題：消除重複，抽離變因</h2>
-    <p>六角冰店超賺，於是開了二店為八角冰店，收銀機商業邏輯調整為：</p>
-    <ol>
-        <li>兩家店同時聘請專業執事與女僕，增加服務費為 10%</li>
-        <li>六角冰店一碗冰 100 元，八角冰店一碗冰 800 元</li>
-    </ol>
-    <p>sixAngleCalculate、eightAngleCalculate 丟入 num 冰碗數量，就可獲得總費用</p>
-    <p>重構思路</p>
-    <p>兩個函式裡面的服務費都是一樣的，可以嘗試抽出來成一個新函式 serviceCharge，專門來計算兩間店的服務費</p>
-   <pre class="prettyprint">
+    <div class="container">
+        <h2>題目五：重構題：消除重複，抽離變因</h2>
+        <p>六角冰店超賺，於是開了二店為八角冰店，收銀機商業邏輯調整為：</p>
+        <ol>
+            <li>兩家店同時聘請專業執事與女僕，增加服務費為 10%</li>
+            <li>六角冰店一碗冰 100 元，八角冰店一碗冰 800 元</li>
+        </ol>
+        <p>sixAngleCalculate、eightAngleCalculate 丟入 num 冰碗數量，就可獲得總費用</p>
+        <p>重構思路</p>
+        <p>兩個函式裡面的服務費都是一樣的，可以嘗試抽出來成一個新函式 serviceCharge，專門來計算兩間店的服務費</p>
+        <pre class="prettyprint">
 // 第一個參數為冰的數量
 function sixAngleCalculate(num){
   const subTotal = num * 100;
@@ -37,8 +40,8 @@ function eightAngleCalculate(num){
     </pre>
 
 
-    <h2>回答:</h2>
-    <pre class="prettyprint">
+        <h2>回答:</h2>
+        <pre class="prettyprint">
         //計算服務費
         function serviceCharge(num) {
             if (!isNaN(num)) {//不是NaN時才運算    
@@ -72,6 +75,8 @@ function eightAngleCalculate(num){
         console.log(`八角冰店消費 您總計費用為 ${eightTotal}`);
 
     </pre>
+    </div>
+
     <script>
         //計算服務費
         function serviceCharge(num) {
@@ -105,9 +110,16 @@ function eightAngleCalculate(num){
         let eightTotal = eightAngleCalculate(5);
         console.log(`八角冰店消費 您總計費用為 ${eightTotal}`);
 
-
     </script>
-     <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
+        integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
+        crossorigin="anonymous"></script>
+    <script src='https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js'></script>
+    <script src="./js/nav.js"></script>
 
 </body>
 
