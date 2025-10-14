@@ -2,7 +2,7 @@
 //JavaScript 工程師養成直播班｜2025 秋季 - 函式刷題任務「if 數值區間 + 邏輯運算子 & 物件與陣列設計 」
 //JavaScript 工程師養成直播班｜2025 秋季 - 函式刷題任務「DOM 操作 」
 //JavaScript 工程師養成直播班｜2025 秋季 - 函式刷題任務「進階 DOM 操作 」
-const data = {
+const navList = {
     name: "函式刷題任務「總整理」",
     nav: [
         {
@@ -185,7 +185,7 @@ nav.appendChild(container_fluid);
 const brand = document.createElement('a');
 brand.classList.add('navbar-brand');
 brand.href = 'index.html';
-brand.textContent = data.name;
+brand.textContent = navList.name;
 container_fluid.appendChild(brand);
 
 const button = document.createElement('button');
@@ -210,7 +210,7 @@ navMenu.classList.add('navbar-nav');
 collapseDiv.appendChild(navMenu);
 
 // 動態產生選單
-data.nav.forEach(item => {
+navList.nav.forEach(item => {
     const dropdown = document.createElement('li');
     dropdown.classList.add('nav-item', 'dropdown');
     const dropdownToggle = document.createElement('a');
