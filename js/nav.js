@@ -173,7 +173,7 @@ const data = {
 };
 
 const nav = document.createElement('nav');
-nav.classList.add('navbar', 'bg-dark', 'navbar-expand-lg');
+nav.classList.add('navbar', 'bg-dark', 'navbar-expand-lg','sticky-top');
 nav.setAttribute('data-bs-theme', 'dark');
 document.body.prepend(nav);
 const container_fluid = document.createElement('div');

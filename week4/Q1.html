@@ -14,7 +14,7 @@
     *::after {
       box-sizing: border-box;
     }
-    
+
     button:focus,
     button:hover {
       outline: 2px solid blue;
@@ -92,112 +92,6 @@
     </div>
     <button class="open-modal-btn">打開彈跳視窗</button>
 
-    <pre class="prettyprint">
-          *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-    }
-    
-    button:focus,
-    button:hover {
-      outline: 2px solid blue;
-      outline-offset: 2px;
-    }
-
-    .dialog {
-      position: fixed;
-      top: 0;
-      left: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 100;
-      width: 100%;
-      height: 100%;
-    }
-
-    .dialog::after {
-      content: "";
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: black;
-      opacity: 0.5;
-      z-index: -1;
-    }
-
-    .dialog--active {
-      display: flex;
-    }
-
-    .dialog__window {
-      background-color: lightgray;
-      padding: 1rem;
-    }
-
-    .display-none {
-      display: none;
-    }
-    
-   &lt;div role=&quot;dialog&quot; class=&quot;dialog display-none&quot; aria-labelledby=&quot;dialog_title&quot;&gt;
-      &lt;div class=&quot;dialog__window&quot;&gt;
-        &lt;h2&gt;Dialog Example&lt;/h2&gt;
-        &lt;p&gt;Here is some demo text&lt;/p&gt;
-        &lt;button class=&quot;close-modal-btn&quot;&gt;OK&lt;/button&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;button class=&quot;open-modal-btn&quot;&gt;打開彈跳視窗&lt;/button&gt;</pre>
-
-    <h2>回答:</h2>
-    <pre class="prettyprint">
-       //這周內容會與 HTML 和 CSS 有高度相關，若不太熟悉可以先複製 HTML 與 CSS 的部分操作 JS ，後續再理解它們之間的關係
-
-    //執行背景
-    //這邊會有一個主畫面與彈跳式的視窗
-    //主畫面會一直呈現
-    //彈跳式的視窗會在點擊後出現
-    //所以彈跳式的部分會先使用 display-none 隱藏起來
-
-    //執行步驟
-    //1.點擊按鈕後能開啟彈跳式視窗的畫面
-    //2.點擊 OK 或 modal 以外的部分能關閉視窗
-
-    const openModalBtn = document.querySelector(".open-modal-btn");
-    const closeModalBtn = document.querySelector(".close-modal-btn");
-    const dialog = document.querySelector(".dialog");
-
-    //先建立一個開啟的按鈕
-    openModalBtn.addEventListener("click", () => {
-
-      //將 display-none 移除，讓畫面能出現
-      dialog.classList.remove("display-none");
-
-      //因應題目要求，讓其按鈕有 focus 的效果
-      closeModalBtn.focus();
-    });
-
-    //與上列功能相同
-    closeModalBtn.addEventListener("click", () => {
-      dialog.classList.add("display-none");
-      openModalBtn.focus();
-    });
-
-    //這邊是當點擊外框時能關閉 modal
-    dialog.addEventListener("click", (event) => {
-
-      //console.log(event.target);
-      //這段可以開啟上面的 console.log ，觀察點擊的部分是哪裡
-      //雖然 modal(dialog__window) 本身會包在 dialog 內，但可以透過上列 console.log 的部分發現，當我們點擊後不會選擇到 dialog ，所以可以達到點擊外部產生功能的效果
-      if (event.target === dialog) {
-        dialog.classList.add("display-none");
-        openModalBtn.focus();
-      }
-    });
-    </pre>
   </div>
   <script>
     //這周內容會與 HTML 和 CSS 有高度相關，若不太熟悉可以先複製 HTML 與 CSS 的部分操作 JS ，後續再理解它們之間的關係

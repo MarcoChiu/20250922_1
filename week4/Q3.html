@@ -8,6 +8,48 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link href="../css/style.css" rel="stylesheet">
+    <style>
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .course {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .course-section {
+            display: flex;
+            color: white;
+        }
+
+        .course-card {
+            max-width: 300px;
+            background: gray;
+            margin: 20px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .course-card img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+        }
+
+        .prev-btn,
+        .next-btn {
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+    </style>
 </head>
 
 <body>
@@ -21,22 +63,103 @@
             <li>(其他) > 當到資料頭、尾便不能再往前、往後</li>
             <li>(其他) > 請嘗試抽離寫死的邏輯，將「最大卡片數量」與「初始卡片位置」改為可輸入的變數。</li>
         </ul>
-
-        <pre class="prettyprint">
- &lt;div&gt;
-  &lt;div&gt;&lt;/div&gt;
-  &lt;div&gt;
-    &lt;button&gt;prev&lt;/button&gt;
-    &lt;button&gt;next&lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</pre>
-
-        <h2>回答:</h2>
-        <pre class="prettyprint">
-    </pre>
+        <main>
+            <div class="course">
+                <div class="course-section">
+                </div>
+                <div>
+                    <button class="prev">prev</button>
+                    <button class="next">next</button>
+                </div>
+            </div>
+        </main>
     </div>
     <script>
+        //這題運用前面的知識點能很簡單的完成
 
+        //新增的知識點為需要知道 filter 兩個變數的意義， .filter(搜尋的資料, 索引位置) ，下面的題目便能很輕易完成
+
+        const cards = [
+            {
+                image: "https://picsum.photos/100",
+                title: "Carousel 1",
+                content:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fringilla, nulla sed tempus varius"
+            },
+            {
+                image: "https://picsum.photos/200",
+                title: "Carousel 2",
+                content:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fringilla, nulla sed tempus varius"
+            },
+            {
+                image: "https://picsum.photos/300",
+                title: "Carousel 3",
+                content:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fringilla, nulla sed tempus varius"
+            },
+            {
+                image: "https://picsum.photos/400",
+                title: "Carousel 4",
+                content:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fringilla, nulla sed tempus varius"
+            },
+            {
+                image: "https://picsum.photos/500",
+                title: "Carousel 5",
+                content:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fringilla, nulla sed tempus varius"
+            },
+            {
+                image: "https://picsum.photos/600",
+                title: "Carousel 6",
+                content:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fringilla, nulla sed tempus varius"
+            }
+        ];
+
+        const courseSection = document.querySelector(".course-section");
+        const prev = document.querySelector(".prev");
+        const next = document.querySelector(".next");
+
+        //這裡做為索引的依據，當我點擊後為 +1 前為 -1 ，這邊可以先理解成自己程式碼的索引參考位置
+        let num = 0;
+
+        //這裡渲染內容
+        function renderItem(num) {
+            let str = "";
+
+            //因為要呈現的是 num 與 num + 1 ，所以下方直接用索引位置找出該筆資料
+            cards.filter((item, index) => num == index || num + 1 == index)
+
+                //找到的資料便能使用 forEach 的方式渲染
+                .forEach((i) => {
+                    str += `<div class="course-card"><img src="${i.image}" alt=""><h2>${i.title}</h2><p>${i.content}.</p></div>`;
+                    courseSection.innerHTML = str;
+                });
+        };
+
+        //接著是操作前後的程式碼
+
+        prev.addEventListener('click', () => {
+
+            //避免 num 為負值
+            if (num == 0) {
+                return;
+            };
+            num--;
+            renderItem(num);
+        });
+
+        next.addEventListener('click', () => {
+            //避免 num 超過資料
+            if (num == cards.length - 1) {
+                return;
+            };
+            num++;
+            renderItem(num);
+        });
+        renderItem(num);
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
