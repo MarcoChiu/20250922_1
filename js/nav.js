@@ -3,50 +3,50 @@
 //JavaScript 工程師養成直播班｜2025 秋季 - 函式刷題任務「DOM 操作 」
 //JavaScript 工程師養成直播班｜2025 秋季 - 函式刷題任務「進階 DOM 操作 」
 const data = {
-    name: "函式刷題任務",
+    name: "函式刷題任務「總整理」",
     nav: [
         {
             menu: "四則運算、字串處理",
             page: [
                 {
                     "title": "題目一：相乘三次 (*)",
-                    "link": "../week1/Q1.html"
+                    "link": "/week1/Q1.html"
                 },
                 {
                     "title": "題目二：取 2 的餘數 + 判斷是否可整除 (% + 結果判斷)",
-                    "link": "../week1/Q2.html"
+                    "link": "/week1/Q2.html"
                 },
                 {
                     "title": "題目三：簡單計算機",
-                    "link": "../week1/Q3.html"
+                    "link": "/week1/Q3.html"
                 },
                 {
                     "title": "題目四：商業邏輯題：增加服務費",
-                    "link": "../week1/Q4.html"
+                    "link": "/week1/Q4.html"
                 },
                 {
                     "title": "題目五：重構題：消除重複，抽離變因",
-                    "link": "../week1/Q5.html"
+                    "link": "/week1/Q5.html"
                 },
                 {
                     "title": "題目六：字串大小寫互換",
-                    "link": "../week1/Q6.html"
+                    "link": "/week1/Q6.html"
                 },
                 {
                     "title": "題目七：字串去左右空白",
-                    "link": "../week1/Q7.html"
+                    "link": "/week1/Q7.html"
                 },
                 {
                     "title": "題目八：字串切割",
-                    "link": "../week1/Q8.html"
+                    "link": "/week1/Q8.html"
                 },
                 {
                     "title": "題目九：擷取字串內容",
-                    "link": "../week1/Q9.html"
+                    "link": "/week1/Q9.html"
                 },
                 {
                     "title": "題目十：反轉字串",
-                    "link": "../week1/Q10.html"
+                    "link": "/week1/Q10.html"
                 }
             ]
         },
@@ -55,43 +55,43 @@ const data = {
             page: [
                 {
                     "title": "題目一：多重條件",
-                    "link": "../week2/Q1.html"
+                    "link": "/week2/Q1.html"
                 },
                 {
                     "title": "題目二：溫標轉換",
-                    "link": "../week2/Q2.html"
+                    "link": "/week2/Q2.html"
                 },
                 {
                     "title": "題目三：計算球體體積",
-                    "link": "../week2/Q3.html"
+                    "link": "/week2/Q3.html"
                 },
                 {
                     "title": "題目四：BMI 計算",
-                    "link": "../week2/Q4.html"
+                    "link": "/week2/Q4.html"
                 },
                 {
                     "title": "題目五：FizzBuzz",
-                    "link": "../week2/Q5.html"
+                    "link": "/week2/Q5.html"
                 },
                 {
                     "title": "題目六：創建陣列與物件",
-                    "link": "../week2/Q6.html"
+                    "link": "/week2/Q6.html"
                 },
                 {
                     "title": "題目七：複製陣列或物件(淺拷貝)",
-                    "link": "../week2/Q7.html"
+                    "link": "/week2/Q7.html"
                 },
                 {
                     "title": "題目八：修改陣列與物件(增、刪、改)",
-                    "link": "../week2/Q8.html"
+                    "link": "/week2/Q8.html"
                 },
                 {
                     "title": "題目九：複製陣列或物件(深拷貝)",
-                    "link": "../week2/Q9.html"
+                    "link": "/week2/Q9.html"
                 },
                 {
                     "title": "題目十：月有陰晴圓缺🌚🌝",
-                    "link": "../week2/Q10.html"
+                    "link": "/week2/Q10.html"
                 }
             ]
         },
@@ -100,43 +100,43 @@ const data = {
             page: [
                 {
                     "title": "題目一：選取 DOM",
-                    "link": "../week3/Q1.html"
+                    "link": "/week3/Q1.html"
                 },
                 {
                     "title": "題目二：修改 DOM",
-                    "link": "../week3/Q2.html"
+                    "link": "/week3/Q2.html"
                 },
                 {
                     "title": "題目三：監聽 DOM",
-                    "link": "../week3/Q3.html"
+                    "link": "/week3/Q3.html"
                 },
                 {
                     "title": "題目四：創造、插入 DOM",
-                    "link": "../week3/Q4.html"
+                    "link": "/week3/Q4.html"
                 },
                 {
                     "title": "題目五：監聽表單",
-                    "link": "../week3/Q5.html"
+                    "link": "/week3/Q5.html"
                 },
                 {
                     "title": "題目六：加減計數器",
-                    "link": "../week3/Q6.html"
+                    "link": "/week3/Q6.html"
                 },
                 {
                     "title": "題目七：加減計數器(進階)",
-                    "link": "../week3/Q7.html"
+                    "link": "/week3/Q7.html"
                 },
                 {
                     "title": "題目八：手風琴",
-                    "link": "../week3/Q8.html"
+                    "link": "/week3/Q8.html"
                 },
                 {
                     "title": "題目九：頁籤",
-                    "link": "../week3/Q9.html"
+                    "link": "/week3/Q9.html"
                 },
                 {
                     "title": "題目十：代辦事項",
-                    "link": "../week3/Q10.html"
+                    "link": "/week3/Q10.html"
                 }
             ]
         },
@@ -145,27 +145,27 @@ const data = {
             page: [
                 {
                     "title": "題目一：無障礙彈跳視窗",
-                    "link": "../week4/Q1.html"
+                    "link": "/week4/Q1.html"
                 },
                 {
                     "title": "題目一：無障礙彈跳視窗(AI版)",
-                    "link": "../week4/Q1AI.html"
+                    "link": "/week4/Q1AI.html"
                 },
                 {
                     "title": "題目二：書籍蒐尋器",
-                    "link": "../week4/Q2.html"
+                    "link": "/week4/Q2.html"
                 },
                 {
                     "title": "題目三：回饋跑馬燈",
-                    "link": "../week4/Q3.html"
+                    "link": "/week4/Q3.html"
                 },
                 {
                     "title": "題目四：步驟表單",
-                    "link": "../week4/Q4.html"
+                    "link": "/week4/Q4.html"
                 },
                 {
                     "title": "題目五：心理測驗",
-                    "link": "../week4/Q5.html"
+                    "link": "/week4/Q5.html"
                 }
             ]
         }
