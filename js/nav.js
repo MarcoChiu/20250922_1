@@ -3,7 +3,7 @@
 //JavaScript 工程師養成直播班｜2025 秋季 - 函式刷題任務「DOM 操作 」
 //JavaScript 工程師養成直播班｜2025 秋季 - 函式刷題任務「進階 DOM 操作 」
 const data = {
-    name: "前端",
+    name: "函式刷題任務",
     nav: [
         {
             menu: "四則運算、字串處理",
