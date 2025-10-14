@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>題目八：修改陣列與物件(增、刪、改)</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <h2>題目八：修改陣列與物件(增、刪、改)</h2>
+
+        <p>增、刪、改陣列或物件的方式有很多種，如還沒有概念如何操作可以參考以下文章。</p>
+        <ul>
+            <li>
+                <a href="https://israynotarray.com/javascript/20190421/1216566123/" target="_blank">關於 JavaScript 陣列 20
+                    種操作的方法
+                </a>
+            </li>
+            <li>
+                <a href="https://www.casper.tw/javascript/2017/06/29/es6-native-array/" target="_blank">JavaScript
+                    陣列處理方法
+                    [filter(), find(), forEach(), map(), every(), some(), reduce()]</a>
+            </li>
+        </ul>
+        <p>陣列：</p>
+        <ul>
+            <li>
+                刪除陣列中的 "咖啡粉"
+            </li>
+            <li>
+                新增 "布丁" 為陣列的首筆資料
+            </li>
+            <li>
+                刪除陣列中的最後一筆資料("蘋果麵包")
+            </li>
+        </ul>
+        <p>物件：</p>
+        <ul>
+            <li>
+                將小明的年齡 +1
+            </li>
+            <li>
+                將小明是否吃素改為 true
+            </li>
+            <li>
+                新增 key 為 "hasDriverLiscense"，value 為 true
+            </li>
+            <li>
+                刪除 key "favoriteFood"
+            </li>
+        </ul>
+        <pre class="prettyprint">
+// Todo 待編輯
+//
+// 請在此對新物件與陣列做更動。
+//
+console.log(newToBuyList)
+console.log(newUserInfo)
+
+// Output 輸出
+["布丁", "牛奶", "酪梨"]
+
+{
+ age: 21,
+ name: "小明",
+ sex: "男",
+ hobby: ["前端開發", "讀書", "健身"],
+ isVegetarian: true
+ hasDriverLiscense: true
+}
+    </pre>
+
+
+        <h2>回答:</h2>
+        <pre class="prettyprint">
+        const toBuyList = ["牛奶", "酪梨", "咖啡粉", "蘋果麵包"];
+        const userInfo = {
+            age: 20,
+            name: "小明",
+            sex: "男",
+            hobby: ["前端開發", "讀書", "跑步"],
+            favoriteFood: "滷肉飯",
+            isVegetarian: false
+        };
+
+        //刪除陣列中的 "咖啡粉"
+        const indexCoffee = toBuyList.indexOf("咖啡粉");
+        toBuyList.splice(2, 1);
+        console.log(toBuyList);
+
+        //新增 "布丁" 為陣列的首筆資料
+        toBuyList.unshift("布丁");
+        console.log(toBuyList);
+
+        //刪除陣列中的最後一筆資料"蘋果麵包"
+        toBuyList.pop();
+        console.log(toBuyList);
+
+        //將小明的年齡 +1
+        ++userInfo.age;
+        console.log(userInfo);
+
+        //將小明是否吃素改為 true
+        userInfo.isVegetarian = true;
+        console.log(userInfo);
+
+        //新增 key 為 "hasDriverLiscense"，value 為 true
+        userInfo.hasDriverLiscense = true;
+        console.log(userInfo);
+
+        //刪除 key "favoriteFood"
+        delete userInfo.favoriteFood;
+        console.log(userInfo);
+    </pre>
+    </div>
+    <script>
+        const toBuyList = ["牛奶", "酪梨", "咖啡粉", "蘋果麵包"];
+        const userInfo = {
+            age: 20,
+            name: "小明",
+            sex: "男",
+            hobby: ["前端開發", "讀書", "跑步"],
+            favoriteFood: "滷肉飯",
+            isVegetarian: false
+        };
+
+        //刪除陣列中的 "咖啡粉"
+        const indexCoffee = toBuyList.indexOf("咖啡粉");
+        toBuyList.splice(2, 1);
+        console.log(toBuyList);
+
+        //新增 "布丁" 為陣列的首筆資料
+        toBuyList.unshift("布丁");
+        console.log(toBuyList);
+
+        //刪除陣列中的最後一筆資料"蘋果麵包"
+        toBuyList.pop();
+        console.log(toBuyList);
+
+        //將小明的年齡 +1
+        ++userInfo.age;
+        console.log(userInfo);
+
+        //將小明是否吃素改為 true
+        userInfo.isVegetarian = true;
+        console.log(userInfo);
+
+        //新增 key 為 "hasDriverLiscense"，value 為 true
+        userInfo.hasDriverLiscense = true;
+        console.log(userInfo);
+
+        //刪除 key "favoriteFood"
+        delete userInfo.favoriteFood;
+        console.log(userInfo);
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
+        integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
+        crossorigin="anonymous"></script>
+    <script src='https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js'></script>
+    <script src="../js/nav.js"></script>
+</body>
+
+</html>

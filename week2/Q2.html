@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>題目二：溫標轉換</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <h2>題目二：溫標轉換</h2>
+        <p>目前常見的溫度標示有攝氏(°C)與華氏(°F)，請撰寫兩個函式可以轉換彼此四捨五入至小數第一位，如下範例。</p>
+        <ul>
+            <li>攝氏轉華氏： (10°C x 9/5) + 32 = 50°F</li>
+            <li>華氏轉攝氏： (10°F − 32) × 5/9 = -12.2°C</li>
+        </ul>
+        <pre class="prettyprint">
+// input 輸入
+CtoF(10)
+FtoC(10)
+
+// output 輸出
+50
+-12.2
+    </pre>
+
+        <h2>回答:</h2>
+        <pre class="prettyprint">
+        function CtoF(num) {
+            if (!isNaN(num)) {//不是NaN時才運算     
+                console.log((num * 9 / 5) + 32);
+            } else {
+                console.log(num + '-數字有問題無法運算');
+            }
+        }
+
+        function FtoC(num) {
+            if (!isNaN(num)) {//不是NaN時才運算     
+                let c = (num - 32) * 5 / 9;
+                console.log(Number.parseFloat(c).toFixed(2));//取小數點幾位                
+            } else {
+                console.log(num + '-數字有問題無法運算');
+            }
+        }
+
+        CtoF(10);
+        FtoC(10);
+    </pre>
+    </div>
+    <script>
+        function CtoF(num) {
+            if (!isNaN(num)) {//不是NaN時才運算     
+                console.log((num * 9 / 5) + 32);
+            } else {
+                console.log(num + '-數字有問題無法運算');
+            }
+        }
+
+        function FtoC(num) {
+            if (!isNaN(num)) {//不是NaN時才運算     
+                let c = (num - 32) * 5 / 9;
+                console.log(c.toFixed(2));//取小數點幾位                
+            } else {
+                console.log(num + '-數字有問題無法運算');
+            }
+        }
+
+        CtoF(10);
+        FtoC(10);
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
+        integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
+        crossorigin="anonymous"></script>
+    <script src='https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js'></script>
+    <script src="../js/nav.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>題目一：選取 DOM</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <h2>題目一：選取 DOM</h2>
+        <p>使用以下註解提到的方式來選取 DOM 元件，再打印至終端中。</p>
+        <div data-target id="target" class="target">選我01</div>
+        <div data-target class="target">選我02</div>
+        <pre class="prettyprint">
+// Todo 待完成
+// 01. 使用 getElementById + getAttribute("id") 來獲取 01 的 id 內容
+console.log(...)
+// 02. 使用 getElementsByClassName 來獲取一個 HTMLCollection
+console.log(...)
+// 03. 使用 querySelector 來獲取一個 Element
+console.log(...)
+// 04. 使用 querySelectorAll 來獲取一個 NodeList
+console.log(...)
+// 05. 使用 nextSibling 來獲取一個 Node
+console.log(...)
+
+// Output 輸出
+// "target"
+// HTMLCollection { 0: div#target.target, length: 1, … }
+// &lt;div id=&quot;target&quot; class=&quot;target&quot; data-target=&quot;&quot;&gt;
+// NodeList [ div#target.target, div ]
+// #text "\n"
+    </pre>
+
+        <h2>回答:</h2>
+        <pre class="prettyprint">
+        // 01. 使用 getElementById + getAttribute("id") 來獲取 01 的 id 內容
+        console.log(document.getElementById('target').getAttribute('id'));
+
+        // 02. 使用 getElementsByClassName 來獲取一個 HTMLCollection
+        console.log(document.getElementsByClassName('target'));
+
+        // 03. 使用 querySelector 來獲取一個 Element
+        console.log(document.querySelector('#target'));
+
+
+        // 04. 使用 querySelectorAll 來獲取一個 NodeList
+        console.log(document.querySelectorAll('.target'));
+
+        // 05. 使用 nextSibling 來獲取一個 Node
+       console.log(document.querySelector("#target").nextSibling);
+
+        // Output 輸出
+        // "target"
+        // HTMLCollection { 0: div#target.target, length: 1, … }
+        // &lt;div id=&quot;target&quot; class=&quot;target&quot; data-target=&quot;&quot;&gt;
+        // NodeList [ div#target.target, div ]
+        // #text "\n"
+
+    </pre>
+    </div>
+    <script>
+        // 01. 使用 getElementById + getAttribute("id") 來獲取 01 的 id 內容
+        console.log(document.getElementById('target').getAttribute('id'));
+
+        // 02. 使用 getElementsByClassName 來獲取一個 HTMLCollection
+        console.log(document.getElementsByClassName('target'));
+
+        // 03. 使用 querySelector 來獲取一個 Element
+        console.log(document.querySelector('#target'));
+
+
+        // 04. 使用 querySelectorAll 來獲取一個 NodeList
+        console.log(document.querySelectorAll('.target'));
+
+        // 05. 使用 nextSibling 來獲取一個 Node
+        console.log(document.querySelector("#target").nextSibling);
+
+        // Output 輸出
+        // "target"
+        // HTMLCollection { 0: div#target.target, length: 1, … }
+        // <div id="target" class="target" data-target="">
+        // NodeList [ div#target.target, div ]
+        // #text "\n"
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
+        integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
+        crossorigin="anonymous"></script>
+    <script src='https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js'></script>
+    <script src="../js/nav.js"></script>
+</body>
+
+</html>

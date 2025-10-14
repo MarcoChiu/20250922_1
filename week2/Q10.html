@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>題目十：月有陰晴圓缺🌚🌝</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <h2>題目十：月有陰晴圓缺🌚🌝</h2>
+        <p>先喘一口氣，接著挑戰如何使用原生方法處理陣列。通常會建議同學基本了解以下最常用的方法，就足夠應付大多場合：</p>
+        <ul>
+            <li>
+                <a href="https://courses.hexschool.com/courses/2020111311/lectures/48764417">
+                    為什麼要學陣列資料處理？
+                </a>
+            </li>
+            <li><a
+                    href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach">
+                    forEach
+                </a>
+            </li>
+            <li>
+                <a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Map">
+                    map
+                </a>
+            </li>
+            <li>
+                <a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/filter">
+                    filter
+                </a>
+            </li>
+            <li>
+                <a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce">
+                    reduce
+                </a>
+            </li>
+        </ul>
+        <p>請製作一個函式可以回傳出月亮一周期的過程，並且在"滿月 🌕"時加上"月餅 🥮"字串。</p>
+        <pre class="prettyprint">
+// Todo 待編輯
+function moonCakeTime(planetPhase) {
+}
+const moonPhase = ["🌑", "🌒", "🌓", "🌔", "🌕", "🌖", "🌗", "🌘"]
+console.log(moonCakeTime(moonPhase))
+
+// Output 輸出
+["🌑","🌒","🌓","🌔","🌕 + 🥮","🌖","🌗","🌘"]
+    </pre>
+
+        <h2>回答:</h2>
+        <pre class="prettyprint">
+        function moonCakeTime(planetPhase) {
+            //forEach() 不會回傳值，主要用於執行側邊效果(side effects)，例如：修改外部變數、顯示資訊或呼叫其他函式。 
+            const arr1 = [];
+            planetPhase.forEach(x => { arr1.push(x == "🌕" ? x = "🌕 + 🥮" : x); });
+
+            //map() 方法會建立一個新的陣列，其內容為原陣列的每一個元素經由回呼函式運算後所回傳的結果之集合。
+            const arr2 = planetPhase.map(x =>  x == "🌕" ? x = "🌕 + 🥮" : x );
+
+            //Array 實例的 filter() 方法會建立一個給定陣列部分的淺複製，過濾掉未通過所提供函式所實作測試的給定陣列元素。
+
+            //reduce() 方法將一個累加器及陣列中每項元素（由左至右）傳入回呼函式，將陣列化為單一值。 
+
+            return arr1;
+        }
+        const moonPhase = ["🌑", "🌒", "🌓", "🌔", "🌕", "🌖", "🌗", "🌘"];
+        console.log(moonCakeTime(moonPhase));
+    </pre>
+    </div>
+    <script>
+        function moonCakeTime(planetPhase) {
+            //forEach() 不會回傳值，主要用於執行側邊效果(side effects)，例如：修改外部變數、顯示資訊或呼叫其他函式。 
+            const arr1 = [];
+            planetPhase.forEach(x => { arr1.push(x == "🌕" ? x = "🌕 + 🥮" : x); });
+
+            //map() 方法會建立一個新的陣列，其內容為原陣列的每一個元素經由回呼函式運算後所回傳的結果之集合。
+            const arr2 = planetPhase.map(x => x == "🌕" ? x = "🌕 + 🥮" : x);
+
+            //Array 實例的 filter() 方法會建立一個給定陣列部分的淺複製，過濾掉未通過所提供函式所實作測試的給定陣列元素。
+
+            //reduce() 方法將一個累加器及陣列中每項元素（由左至右）傳入回呼函式，將陣列化為單一值。 
+
+            return arr1;
+        }
+        const moonPhase = ["🌑", "🌒", "🌓", "🌔", "🌕", "🌖", "🌗", "🌘"];
+        console.log(moonCakeTime(moonPhase));
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
+        integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
+        crossorigin="anonymous"></script>
+    <script src='https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js'></script>
+    <script src="../js/nav.js"></script>
+</body>
+
+</html>

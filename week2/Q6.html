@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>題目六：創建陣列與物件</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <h2>題目六：創建陣列與物件</h2>
+        <p>請分別創建一個陣列與物件用於存儲以下資訊並在瀏覽器的 Console 中打印出來：</p>
+        <ul>
+            <li>待買備忘錄 (用陣列表示)</li>
+            <ul>
+                <li>牛奶</li>
+                <li>酪梨</li>
+                <li>咖啡粉</li>
+                <li>蘋果麵包</li>
+            </ul>
+            <li>用戶的資訊 (用物件表示)</li>
+            <ul>
+                <li>年紀： 20</li>
+                <li>名稱： 小明</li>
+                <li>生理性別： 男</li>
+                <li>興趣： 前端開發、讀書、跑步</li>
+                <li>喜歡的食物： 滷肉飯</li>
+                <li>吃素： 否</li>
+            </ul>
+        </ul>
+        <pre class="prettyprint">
+// 附註：同學可嘗試放入任何自訂內容，著重在練習語法操作。
+
+// Todo 待修改
+const toBuyList = []
+const userInfo = {}
+console.log(toBuyList)
+console.log(userInfo)
+
+// Output 輸出
+["牛奶", "酪梨", "咖啡粉", "蘋果麵包"]
+
+{
+ age: 20,
+ name: "小明",
+ sex: "男",
+ hobby: ["前端開發", "讀書", "跑步"],
+ favoriteFood: "滷肉飯",
+ isVegetarian: false
+}
+    </pre>
+
+        <h2>回答:</h2>
+        <pre class="prettyprint">
+
+    </pre>
+    </div>
+    <script>
+        // Todo 待修改
+        const toBuyList = [];
+        toBuyList.push("牛奶");
+        toBuyList.push("酪梨");
+        toBuyList.push("咖啡粉");
+        toBuyList.push("蘋果麵包");
+
+        const userInfo = {};
+        userInfo.age = 20;
+        userInfo.name = "小明";
+        userInfo.sex = "男"
+        userInfo.hobby = ["前端開發", "讀書", "跑步"];
+        userInfo.favoriteFood = "滷肉飯";
+        userInfo.isVegetarian = false;
+
+        console.log(toBuyList);
+        console.log(userInfo);
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
+        integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
+        crossorigin="anonymous"></script>
+    <script src='https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js'></script>
+    <script src="../js/nav.js"></script>
+</body>
+
+</html>

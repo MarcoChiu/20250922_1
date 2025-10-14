@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>題目七：複製陣列或物件(淺拷貝)</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <h2>題目七：複製陣列或物件(淺拷貝)</h2>
+        <p>如果還沒有概念如何操作，可參考以下文檔。</p>
+        <ul>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax"
+                    target="_blank">ES6 展開語法：Spread syntax (…)</a></li>
+            <li><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Object/assign"
+                    target="_blank">物件複製：Object.assign()</a></li>
+        </ul>
+        <p>JavaScript 在創建變數、賦值後除了基本型態外都是以傳址(call by refence)來去記載內容位置，雖然可以節省記憶體使用但也會造成「改 A 更動到 B」的問題。</p>
+        <p>參考資料：Pass by value, or Pass by reference？</p>
+        <p>接續第六題，請複製一份相同的內容(使用淺拷貝的方式)到全新的陣列、物件之中。</p>
+        <pre class="prettyprint">
+// Todo 待修改
+const newToBuyList = [];
+const newUserInfo = {};
+console.log(newToBuyList);
+console.log(newUserInfo);
+
+// Output 輸出
+["牛奶", "酪梨", "咖啡粉", "蘋果麵包"]
+
+{
+ age: 20,
+ name: "小明",
+ sex: "男",
+ hobby: ["前端開發", "讀書", "健身"],
+ favoriteFood: "滷肉飯",
+ isVegetarian: false
+}
+    </pre>
+
+        <h2>回答:</h2>
+        <p>淺拷貝</p>
+        <p>第一層指向不一樣位址 第二層指向相同位址 ，但修改了第二層物件不會影響原有物件</p>
+        <p>1.Spread syntax (...來源資料)</p>
+        <p>2.Object.assign(要轉的型別，來源資料)</p>
+        <pre class="prettyprint">
+        const toBuyList = ["牛奶", "酪梨", "咖啡粉", "蘋果麵包"];
+        const userInfo = {
+            age: 20,
+            name: "小明",
+            sex: "男",
+            hobby: ["前端開發", "讀書", "跑步"],
+            favoriteFood: "滷肉飯",
+            isVegetarian: false
+        };
+
+        //1.Spread syntax (...來源資料) 
+        const newToBuyList1 = [...toBuyList];
+        const newUserInfo1 = { ...userInfo };
+
+        //console.log(userInfo === newUserInfo1);//false
+        //console.log(userInfo.age === newUserInfo1.age);//true
+
+        // userInfo.age = 99;//修改舊物件
+        // console.log(userInfo.age);//99
+        // console.log(newUserInfo1.age);//20
+
+        // newUserInfo1.age = 99;//修改新物件
+        // console.log(userInfo.age);//20
+        // console.log(newUserInfo1.age);//99
+
+        //2.Object.assign(要轉的型別，來源資料)  
+        const newToBuyList2 = Object.assign([], toBuyList);
+        const newUserInfo2 = Object.assign({}, userInfo);
+
+        // console.log(userInfo === newUserInfo2);//false
+        // console.log(userInfo.age === newUserInfo2.age);//true
+
+        // userInfo.age = 99;//修改舊物件
+        // console.log(userInfo.age);//99
+        // console.log(newUserInfo2.age);//20
+
+        // newUserInfo2.age = 99;//修改新物件
+        // console.log(userInfo.age);//20
+        // console.log(newUserInfo2.age);//99
+
+        //3.傳址時都會一樣
+        const newUserInfo3 = userInfo;
+
+        // console.log(userInfo === newUserInfo3);//true
+        // console.log(userInfo.age === newUserInfo3.age);//true
+
+        // userInfo.age = 99;//修改舊物件
+        // console.log(userInfo.age);//99
+        // console.log(newUserInfo3.age);//20
+
+        // newUserInfo3.age = 99;//修改新物件
+        // console.log(userInfo.age);//99
+        // console.log(newUserInfo3.age);//99
+    </pre>
+    </div>
+    <script>
+        const toBuyList = ["牛奶", "酪梨", "咖啡粉", "蘋果麵包"];
+        const userInfo = {
+            age: 20,
+            name: "小明",
+            sex: "男",
+            hobby: ["前端開發", "讀書", "跑步"],
+            favoriteFood: "滷肉飯",
+            isVegetarian: false
+        };
+
+        //1.Spread syntax (...來源資料) 
+        const newToBuyList1 = [...toBuyList];
+        const newUserInfo1 = { ...userInfo };
+
+        //console.log(userInfo === newUserInfo1);//false
+        //console.log(userInfo.age === newUserInfo1.age);//true
+
+        // userInfo.age = 99;//修改舊物件
+        // console.log(userInfo.age);//99
+        // console.log(newUserInfo1.age);//20
+
+        // newUserInfo1.age = 99;//修改新物件
+        // console.log(userInfo.age);//20
+        // console.log(newUserInfo1.age);//99
+
+        //2.Object.assign(要轉的型別，來源資料)  
+        const newToBuyList2 = Object.assign([], toBuyList);
+        const newUserInfo2 = Object.assign({}, userInfo);
+
+        // console.log(userInfo === newUserInfo2);//false
+        // console.log(userInfo.age === newUserInfo2.age);//true
+
+        // userInfo.age = 99;//修改舊物件
+        // console.log(userInfo.age);//99
+        // console.log(newUserInfo2.age);//20
+
+        // newUserInfo2.age = 99;//修改新物件
+        // console.log(userInfo.age);//20
+        // console.log(newUserInfo2.age);//99
+
+        //3.傳址時都會一樣
+        const newUserInfo3 = userInfo;
+
+        // console.log(userInfo === newUserInfo3);//true
+        // console.log(userInfo.age === newUserInfo3.age);//true
+
+        // userInfo.age = 99;//修改舊物件
+        // console.log(userInfo.age);//99
+        // console.log(newUserInfo3.age);//20
+
+        // newUserInfo3.age = 99;//修改新物件
+        // console.log(userInfo.age);//99
+        // console.log(newUserInfo3.age);//99
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
+        integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
+        crossorigin="anonymous"></script>
+    <script src='https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js'></script>
+    <script src="../js/nav.js"></script>
+</body>
+
+</html>
