@@ -46,65 +46,60 @@ bmi(178,200)
             }
         }
 
-        function waistline(gender, waistline) {
-            const person1 = new Person(0, 0, gender, waistline);
-            console.log(person1.waistlineToString());
+        function Person(height, weight) {
+            this.height = height;
+            this.weight = weight;
         }
 
-        function Person {
-            constructor(height, weight, gender = '', waistline = 0) {
-                this.height = height;
-                this.weight = weight;
-                this.gender = gender;
-                this.waistline = waistline;
-               // 方法會被自動加到該 class 的 prototype 上
-            bmiCal() {
-                //https://ithelp.ithome.com.tw/articles/10229952
-                let w = parseInt(this.weight);
-                let h = parseInt(this.height) / 100;//因為公分要轉公尺所以除以100
-                let bmi = (w / (h * h)).toFixed(2);//toFixed讓小數點4捨5入只有2位                
-                return bmi;
-            }
-
-            bmiToString() {
-                let bmi = this.bmiCal();
-                if (bmi < 18.5) {
-                    return `BMI:${bmi}，體重過輕`;
-                } else if (bmi >= 18.5 && bmi < 24) {
-                    return `BMI:${bmi}，正常範圍`;
-                } else if (bmi >= 24 && bmi < 27) {
-                    return `BMI:${bmi}，過重`;
-                } else if (bmi >= 27 && bmi < 30) {
-                    return `BMI:${bmi}，輕度肥胖`;
-                } else if (bmi >= 30 && bmi < 35) {
-                    return `BMI:${bmi}，中度肥胖`;
-                } else if (bmi >= 35) {
-                    return `BMI:${bmi}，重度肥胖`;
-                }
-            }
-
-            waistlineToString() {
-                if (this.waistline > 0 && this.gender != '') {
-                    if ((this.gender === "男性" && this.waistline >= 90) || (this.waistline >= 80 && this.gender === "女性")) {
-                        return `${this.gender}腰圍過大`;
-                    } else {
-                        return `${this.gender}腰圍正常`;
-                    }
-                }
-            }
-
+        function Gender(height, weight, gender = '', waistline = 0) {
+            Person.call(this, height, weight); //繼承
+            this.gender = gender;
+            this.waistline = waistline;
         }
 
+        Person.prototype.bmiCal = function () {
+            let w = parseInt(this.weight);
+            let h = parseInt(this.height) / 100;//因為公分要轉公尺所以除以100
+            let bmi = (w / (h * h)).toFixed(2);//toFixed讓小數點4捨5入只有2位                
+            return bmi;
+        };
 
-        bmi(178, 20);
-        bmi(178, 65);
-        bmi(178, 77);
-        bmi(178, 89);
-        bmi(178, 100);
-        bmi(178, 200);
+        Person.prototype.bmiToString = function () {
+            let bmi = this.bmiCal();
+            if (bmi < 18.5) {
+                return `BMI:${bmi}，體重過輕`;
+            } else if (bmi >= 18.5 && bmi < 24) {
+                return `BMI:${bmi}，正常範圍`;
+            } else if (bmi >= 24 && bmi < 27) {
+                return `BMI:${bmi}，過重`;
+            } else if (bmi >= 27 && bmi < 30) {
+                return `BMI:${bmi}，輕度肥胖`;
+            } else if (bmi >= 30 && bmi < 35) {
+                return `BMI:${bmi}，中度肥胖`;
+            } else if (bmi >= 35) {
+                return `BMI:${bmi}，重度肥胖`;
+            }
+        };
 
-        waistline('男性', 90);
-        waistline('女性', 79);
+        Gender.prototype = Object.create(Person.prototype);//連結
+        Gender.prototype.waistlineToString = function () {
+
+            let result = '';
+            let w = "";
+            if (this.waistline > 0 && this.gender != '') {
+                if ((this.gender === "男性" && this.waistline >= 90) || (this.waistline >= 80 && this.gender === "女性")) {
+                    w = "過大";
+                } else {
+                    w = "正常";
+                }
+            }
+            return `${this.gender};身高:${this.height};體重:${this.weight};bmi:${this.bmiToString()};腰圍:${w}。`;
+        };
+       
+        const m = new Gender(178, 20, '男性', 90);
+        const f = new Gender(178, 65, '女性', 79);
+        console.log(m.waistlineToString());
+        console.log(f.waistlineToString());
     </pre>
     </div>
     <script>
