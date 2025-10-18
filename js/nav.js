@@ -69,8 +69,8 @@ const navList = {
                     "title": "題目四：BMI 計算",
                     "link": "/week2/Q4.html"
                 },{
-                    "title": "題目四：BMI 計算 class (prototype)",
-                    "link": "/week2/Q4Q4prototype.html"
+                    "title": "題目四：BMI 計算 (class prototype)",
+                    "link": "/week2/Q4prototype.html"
                 },
                 {
                     "title": "題目五：FizzBuzz",

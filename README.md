@@ -23,6 +23,7 @@ https://hackmd.io/bA80b0sqSPe2wX6vGGC2VA
 ### [題目二：溫標轉換](https://marcochiu.github.io/20250922_1/week2/Q2.html)
 ### [題目三：計算球體體積](https://marcochiu.github.io/20250922_1/week2/Q3.html)
 ### [題目四：BMI 計算](https://marcochiu.github.io/20250922_1/week2/Q4.html)
+### [題目四：BMI 計算 (class prototype)](https://marcochiu.github.io/20250922_1/week2/Q4prototype.html)
 ### [題目五：FizzBuzz](https://marcochiu.github.io/20250922_1/week2/Q5.html)
 ### [題目六：創建陣列與物件](https://marcochiu.github.io/20250922_1/week2/Q6.html)
 ### [題目七：複製陣列或物件(淺拷貝)](https://marcochiu.github.io/20250922_1/week2/Q7.html)
