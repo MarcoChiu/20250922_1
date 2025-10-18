@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>題目四：BMI 計算</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <h2>題目四：BMI 計算</h2>
+        <p>BMI 稱為身體質量指數（Body Mass Index，縮寫為BMI），是目前美國疾病管制局及世界衛生組織所認可，利用身高為基礎來測量體重是否符合標準。請套用以下公式製作一個 BMI 計算函式。</p>
+        <p>BMI = 體重(公斤) / 身高的平方(公尺)</p>
+        <p>另一種作業寫法<a href="https://codepen.io/MarcoChiu/pen/gbPwGea" target="_blank">JS班-第四堂 - 函式設計與陣列操作</a></p>
+        <pre class="prettyprint">
+// input 輸入 bmi(cm,kg)
+bmi(178,20)
+bmi(178,65)
+bmi(178,77)
+bmi(178,89)
+bmi(178,100)
+bmi(178,200)
+// BMI(身高,體重)
+
+// output 輸出
+"體重過輕"
+"正常範圍"
+"異常範圍"
+"異常範圍"
+"異常範圍"
+"異常範圍"
+    </pre>
+
+        <h2>回答:</h2>
+        <pre class="prettyprint">
+        function bmi(height, weight) {
+            if (!isNaN(height) || !isNaN(weight)) {//不是NaN時才運算   
+                const person = new Person(height, weight);
+                console.log(person.bmiToString());
+            } else {
+                console.log(num + '-數字有問題無法運算');
+            }
+        }
+
+        function waistline(gender, waistline) {
+            const person1 = new Person(0, 0, gender, waistline);
+            console.log(person1.waistlineToString());
+        }
+
+        function Person {
+            constructor(height, weight, gender = '', waistline = 0) {
+                this.height = height;
+                this.weight = weight;
+                this.gender = gender;
+                this.waistline = waistline;
+               // 方法會被自動加到該 class 的 prototype 上
+            bmiCal() {
+                //https://ithelp.ithome.com.tw/articles/10229952
+                let w = parseInt(this.weight);
+                let h = parseInt(this.height) / 100;//因為公分要轉公尺所以除以100
+                let bmi = (w / (h * h)).toFixed(2);//toFixed讓小數點4捨5入只有2位                
+                return bmi;
+            }
+
+            bmiToString() {
+                let bmi = this.bmiCal();
+                if (bmi < 18.5) {
+                    return `BMI:${bmi}，體重過輕`;
+                } else if (bmi >= 18.5 && bmi < 24) {
+                    return `BMI:${bmi}，正常範圍`;
+                } else if (bmi >= 24 && bmi < 27) {
+                    return `BMI:${bmi}，過重`;
+                } else if (bmi >= 27 && bmi < 30) {
+                    return `BMI:${bmi}，輕度肥胖`;
+                } else if (bmi >= 30 && bmi < 35) {
+                    return `BMI:${bmi}，中度肥胖`;
+                } else if (bmi >= 35) {
+                    return `BMI:${bmi}，重度肥胖`;
+                }
+            }
+
+            waistlineToString() {
+                if (this.waistline > 0 && this.gender != '') {
+                    if ((this.gender === "男性" && this.waistline >= 90) || (this.waistline >= 80 && this.gender === "女性")) {
+                        return `${this.gender}腰圍過大`;
+                    } else {
+                        return `${this.gender}腰圍正常`;
+                    }
+                }
+            }
+
+        }
+
+
+        bmi(178, 20);
+        bmi(178, 65);
+        bmi(178, 77);
+        bmi(178, 89);
+        bmi(178, 100);
+        bmi(178, 200);
+
+        waistline('男性', 90);
+        waistline('女性', 79);
+    </pre>
+    </div>
+    <script>
+        function bmi(height, weight) {
+            if (!isNaN(height) || !isNaN(weight)) {//不是NaN時才運算   
+                const person = new Person(height, weight);
+                console.log(person.bmiToString());
+            } else {
+                console.log(num + '-數字有問題無法運算');
+            }
+        }
+
+        function Person(height, weight) {
+            this.height = height;
+            this.weight = weight;
+        }
+
+        function Gender(height, weight, gender = '', waistline = 0) {
+            Person.call(this, height, weight); //繼承
+            this.gender = gender;
+            this.waistline = waistline;
+        }
+
+        Person.prototype.bmiCal = function () {
+            let w = parseInt(this.weight);
+            let h = parseInt(this.height) / 100;//因為公分要轉公尺所以除以100
+            let bmi = (w / (h * h)).toFixed(2);//toFixed讓小數點4捨5入只有2位                
+            return bmi;
+        };
+
+        Person.prototype.bmiToString = function () {
+            let bmi = this.bmiCal();
+            if (bmi < 18.5) {
+                return `BMI:${bmi}，體重過輕`;
+            } else if (bmi >= 18.5 && bmi < 24) {
+                return `BMI:${bmi}，正常範圍`;
+            } else if (bmi >= 24 && bmi < 27) {
+                return `BMI:${bmi}，過重`;
+            } else if (bmi >= 27 && bmi < 30) {
+                return `BMI:${bmi}，輕度肥胖`;
+            } else if (bmi >= 30 && bmi < 35) {
+                return `BMI:${bmi}，中度肥胖`;
+            } else if (bmi >= 35) {
+                return `BMI:${bmi}，重度肥胖`;
+            }
+        };
+
+        Gender.prototype = Object.create(Person.prototype);//連結
+        Gender.prototype.waistlineToString = function () {
+
+            let result = '';
+            let w = "";
+            if (this.waistline > 0 && this.gender != '') {
+                if ((this.gender === "男性" && this.waistline >= 90) || (this.waistline >= 80 && this.gender === "女性")) {
+                    w = "過大";
+                } else {
+                    w = "正常";
+                }
+            }
+            return `${this.gender};身高:${this.height};體重:${this.weight};bmi:${this.bmiToString()};腰圍:${w}。`;
+        };
+       
+        const m = new Gender(178, 20, '男性', 90);
+        const f = new Gender(178, 65, '女性', 79);
+        console.log(m.waistlineToString());
+        console.log(f.waistlineToString());
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
+        integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
+        crossorigin="anonymous"></script>
+    <script src='https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js'></script>
+    <script src="../js/nav.js"></script>
+</body>
+
+</html>

@@ -68,9 +68,14 @@ const navList = {
                 {
                     "title": "題目四：BMI 計算",
                     "link": "/week2/Q4.html"
-                },{
+                },
+                {
                     "title": "題目四：BMI 計算 (class prototype)",
-                    "link": "/week2/Q4prototype.html"
+                    "link": "/week2/Q4classprototype.html"
+                },
+                {
+                    "title": "題目四：BMI 計算 (function prototype)",
+                    "link": "/week2/Q4functionprototype.html"
                 },
                 {
                     "title": "題目五：FizzBuzz",
@@ -178,7 +183,7 @@ const navList = {
 const baseUrl = location.href.indexOf('127.0.0.1') > 0 || location.href.indexOf('localhost') > 0 ? "" : "/20250922_1";
 
 const nav = document.createElement('nav');
-nav.classList.add('navbar', 'bg-dark', 'navbar-expand-lg','sticky-top');
+nav.classList.add('navbar', 'bg-dark', 'navbar-expand-lg', 'sticky-top');
 nav.setAttribute('data-bs-theme', 'dark');
 document.body.prepend(nav);
 const container_fluid = document.createElement('div');
@@ -187,7 +192,7 @@ nav.appendChild(container_fluid);
 
 const brand = document.createElement('a');
 brand.classList.add('navbar-brand');
-brand.href = baseUrl +'/index.html';
+brand.href = baseUrl + '/index.html';
 brand.textContent = navList.name;
 container_fluid.appendChild(brand);
 
