@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>題目七：字串去左右空白</title>
+    <title>第一題：大雄罰寫</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link href="../css/style.css" rel="stylesheet">
@@ -12,43 +12,33 @@
 
 <body>
     <div class="container">
-        <h2>題目七：字串去左右空白</h2>
-        <p>✨keywords: trim()</p>
+        <h2>第一題：大雄罰寫M</h2>
+        <p>大雄上課睡覺，被班導要求罰寫 500 次自己的名字，你是哆啦 A 夢，快救救大雄吧！
+            請依照以下格式打印大雄的罰寫內容使用 console.log 印出結果：</p>
+        <p>✨keywords：for</p>
         <pre class="prettyprint">
-// input 輸入
-trimString("    hi, mom!  ")
-trimString(" aa@gmail.com  ")
+// Todo 待編輯
+function writeMyName(times) {  
+  console.log("次數-野比大雄")
+}
+writeMyName(500)
 
-// output 輸出
-"hi, mom!"
-"aa@gmail.com"
+// Output 輸出
+// * 1-野比大雄
+// * 2-野比大雄
+// * 3-野比大雄
+// * ...
+// * 500-野比大雄
     </pre>
 
         <h2>回答:</h2>
         <pre class="prettyprint">
-        function trimString(str) {
-            str = str.trim();
-            if (str.length > 0) {//不是NaN時才運算              
-                return str.trim();
-            } else {
-                console.log('無帶入文字');
-            }
-        }      
-        console.log(trimString("    hi, mom!  "));
-        console.log(trimString(" aa@gmail.com  "));
+
+
     </pre>
     </div>
     <script>
-        function trimString(str) {
-            str = str.trim();
-            if (str.length > 0) {//不是NaN時才運算              
-                return str.trim();
-            } else {
-                console.log('無帶入文字');
-            }
-        }
-        console.log(trimString("    hi, mom!  "));
-        console.log(trimString(" aa@gmail.com  "));
+
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
@@ -59,7 +49,6 @@ trimString(" aa@gmail.com  ")
         crossorigin="anonymous"></script>
     <script src='https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js'></script>
     <script src="../js/nav.js"></script>
-
 </body>
 
 </html>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>題目二：修改 DOM</title>
+    <title>題目三：監聽 DOM</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link href="../css/style.css" rel="stylesheet">
@@ -12,16 +12,15 @@
 
 <body>
     <div class="container">
-        <h2>題目二：修改 DOM</h2>
-        <p>接續第一題，請創造一個 selectMe 變數並存放內文字為"選我01"的元素，並依照以下的要求使用 DOM API 修改其屬性：</p>
+        <h2>題目三：監聽 DOM</h2>
+        <p>接續第二題，請為該元素(選我01)設置事件監聽，當被「點擊」時做出以下反應：</p>
         <ul>
-            <li>修改文字為紅色 (inline-style)</li>
-            <li>新增 "hello" 的 class 屬性</li>
-            <li>修改文字內容為 "被選了01"</li>
+            <li>背景改為黃色</li>
+            <li>內文字改為 "已被點擊！"</li>
+            <li>再點擊一下回復原本狀態(背景與內容文字回復原樣)。</li>
         </ul>
         <div data-target id="target" class="target">選我01</div>
         <div data-target class="target">選我02</div>
-        <p>✨keywords：Element.style、Element.classList</p>
         <pre class="prettyprint">
 //Todo 待修改
 const selectMe = "..."
@@ -30,16 +29,28 @@ const selectMe = "..."
         <h2>回答:</h2>
         <pre class="prettyprint">
         const selectMe = document.querySelector('#target');
-        selectMe.style.color ="red"; //改變顏色
-        selectMe.classList.add('hello'); //增加class
-        selectMe.textContent = "被選了01";//改變文字       
+        selectMe.addEventListener('click', function (e) {
+            if (!selectMe.style.background) {
+                selectMe.style.background = "yellow";
+                selectMe.textContent = "已被點擊！";
+            } else {
+                selectMe.style.background = "";
+                selectMe.textContent = "被選了01";
+            }
+        });
     </pre>
     </div>
     <script>
         const selectMe = document.querySelector('#target');
-        selectMe.style.color = "red"; //改變顏色
-        selectMe.classList.add('hello'); //增加class
-        selectMe.textContent = "被選了01";//改變文字
+        selectMe.addEventListener('click', function (e) {
+            if (!this.style.background) {
+                this.style.background = "yellow";
+                this.textContent = "已被點擊！";
+            } else {
+                this.style.background = "";
+                this.textContent = "被選了01";
+            }
+        });
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"

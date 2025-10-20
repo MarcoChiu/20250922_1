@@ -59,3 +59,17 @@ https://hackmd.io/9W5-YFGuQFC7freMp12Tgg
 ### [題目五：心理測驗 抄](https://marcochiu.github.io/20250922_1/week4/Q5.html)
 
  
+ ## 迴圈
+```
+https://hackmd.io/rFfFV4jmSEGxuzp6Gq_ubQ
+```
+### [第一題：大雄罰寫](https://marcochiu.github.io/20250922_1/week5/Q1.html)
+### [第二題：水果季節](https://marcochiu.github.io/20250922_1/week5/Q2.html)
+### [第三題：挑出未成年](https://marcochiu.github.io/20250922_1/week5/Q3.html)
+### [第四題：反轉陣列](https://marcochiu.github.io/20250922_1/week5/Q4.html)
+### [第五題：陣列最大值](https://marcochiu.github.io/20250922_1/week5/Q5.html)
+### [第六題：陣列計數](https://marcochiu.github.io/20250922_1/week5/Q6.html)
+### [第七題：乘法表](https://marcochiu.github.io/20250922_1/week5/Q7.html)
+### [第八題：蓋金字塔](https://marcochiu.github.io/20250922_1/week5/Q8.html)
+### [第九題：蓋房子](https://marcochiu.github.io/20250922_1/week5/Q9.html)
+### [第十題：生成費波那契數列](https://marcochiu.github.io/20250922_1/week5/Q10.html)

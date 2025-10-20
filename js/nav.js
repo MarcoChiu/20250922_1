@@ -176,6 +176,51 @@ const navList = {
                     "link": "/week4/Q5.html"
                 }
             ]
+        },
+        {
+            menu: "迴圈",
+            page: [
+                {
+                    "title": "第一題：大雄罰寫",
+                    "link": "/week5/Q1.html"
+                },
+                {
+                    "title": "第二題：水果季節",
+                    "link": "/week5/Q2.html"
+                },
+                {
+                    "title": "第三題：挑出未成年",
+                    "link": "/week5/Q3.html"
+                },
+                {
+                    "title": "第四題：反轉陣列",
+                    "link": "/week5/Q4.html"
+                },
+                {
+                    "title": "第五題：陣列最大值",
+                    "link": "/week5/Q5.html"
+                },
+                {
+                    "title": "第六題：陣列計數",
+                    "link": "/week5/Q6.html"
+                },
+                {
+                    "title": "第七題：乘法表",
+                    "link": "/week5/Q7.html"
+                },
+                {
+                    "title": "第八題：蓋金字塔",
+                    "link": "/week5/Q8.html"
+                },
+                {
+                    "title": "第九題：蓋房子",
+                    "link": "/week5/Q9.html"
+                },
+                {
+                    "title": "第十題：生成費波那契數列",
+                    "link": "/week5/Q10.html"
+                }
+            ]
         }
     ]
 };

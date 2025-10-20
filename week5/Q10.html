@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>題目十：代辦事項</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <h2>題目十：代辦事項</h2>
+        <p>請製作一個代辦事項，像上周的題目一樣，不過將內容呈現至網頁中。</p>
+        <div>
+            <input type="text" class="text" placeholder="請輸入待辦事項">
+            <input type="submit" class="submit" value="submit">
+            <ul class="list">
+            </ul>
+        </div>
+
+        <h2>回答:</h2>
+        <pre class="prettyprint">
+
+        const text = document.querySelector(&quot;.text&quot;);
+        const submit = document.querySelector(&quot;.submit&quot;);
+        const list = document.querySelector(&quot;.list&quot;);
+        const remove = document.querySelectorAll(&quot;.remove&quot;);
+
+        let tasks = [];
+
+        //新增的函式建立
+        function addTask(task) {
+            let id;
+            if (!tasks[tasks.length - 1]) {
+                id = 1;
+            } else if (tasks[tasks.length - 1]) {
+                id = tasks[tasks.length - 1].id + 1;
+            };
+
+            tasks.push({
+                id: id,
+                message: task
+                //isComplete: false
+                //上周這邊會有一個是否完成，這邊可以嘗試新增一個函式，讓 checkbox 點擊時能變化這裡的布林值。
+            });
+        };
+
+        //上述所說的渲染函式
+        function renderTask(tasks) {
+            let str = &quot;&quot;;
+
+            //當內容為空時，可以有一個條件式將內容清空，否則會存留最後一筆無法刪除。
+            if (tasks.length === 0) {
+                list.innerHTML = &quot;&quot;;
+                return;
+            };
+
+            //使用樣板字面值將內容做動態的調整
+            //id 要與 for 對應
+            //使用 forEach 的第二個變數 index 作為刪除的依據
+            tasks.forEach((i, index) =&gt; {
+                str += `
+    &lt;li&gt;
+      &lt;input type=&quot;checkbox&quot; id=&quot;${i.id}&quot;&gt;
+      &lt;label for=&quot;${i.id}&quot;&gt; ${i.message} &lt;/label&gt;
+      &lt;input type=&quot;button&quot; data-num=&quot;${index}&quot; class=&quot;remove&quot; value=&quot;刪除&quot;&gt;
+    &lt;/li&gt;
+    `
+                list.innerHTML = str;
+
+                //因為元素生成時間序的關係，如果在外層想要抓 remove 是沒辦法抓到的，所以需要在內容依照順序，在動態建立完成資料後抓取資料並設定監聽事件。
+                const removeButtons = document.querySelectorAll(&quot;.remove&quot;);
+                removeButtons.forEach((i) =&gt; {
+                    i.addEventListener(&quot;click&quot;, () =&gt; {
+                        removeTask(i.dataset.num)
+                    })
+                })
+            })
+        };
+
+        //新增的函式，最後將輸入資料清空
+        submit.addEventListener(&quot;click&quot;, (e) =&gt; {
+            e.preventDefault();
+            addTask(text.value);
+            renderTask(tasks);
+            text.value = &quot;&quot;;
+        });
+
+        //移除的函式，這邊能使用 num 作為索引依據是因為在修改資料後會重新渲染，所以索引位置會改變，不用擔心在刪除一筆資料索引位置會對不到資料造成刪除錯誤或無法刪除，這邊與上周的作法會稍微不同。
+        function removeTask(num) {
+            tasks.splice(num, 1);
+            renderTask(tasks);
+        };
+    </pre>
+    </div>
+    <script>
+
+        const text = document.querySelector(".text");
+        const submit = document.querySelector(".submit");
+        const list = document.querySelector(".list");
+        const remove = document.querySelectorAll(".remove");
+
+        let tasks = [];
+
+        //新增的函式建立
+        function addTask(task) {
+            let id;
+            if (!tasks[tasks.length - 1]) {
+                id = 1;
+            } else if (tasks[tasks.length - 1]) {
+                id = tasks[tasks.length - 1].id + 1;
+            };
+
+            tasks.push({
+                id: id,
+                message: task
+                //isComplete: false
+                //上周這邊會有一個是否完成，這邊可以嘗試新增一個函式，讓 checkbox 點擊時能變化這裡的布林值。
+            });
+        };
+
+        //上述所說的渲染函式
+        function renderTask(tasks) {
+            let str = "";
+
+            //當內容為空時，可以有一個條件式將內容清空，否則會存留最後一筆無法刪除。
+            if (tasks.length === 0) {
+                list.innerHTML = "";
+                return;
+            };
+
+            //使用樣板字面值將內容做動態的調整
+            //id 要與 for 對應
+            //使用 forEach 的第二個變數 index 作為刪除的依據
+            tasks.forEach((i, index) => {
+                str += `
+    <li>
+      <input type="checkbox" id="${i.id}">
+      <label for="${i.id}"> ${i.message} </label>
+      <input type="button" data-num="${index}" class="remove" value="刪除">
+    </li>
+    `
+                list.innerHTML = str;
+
+                //因為元素生成時間序的關係，如果在外層想要抓 remove 是沒辦法抓到的，所以需要在內容依照順序，在動態建立完成資料後抓取資料並設定監聽事件。
+                const removeButtons = document.querySelectorAll(".remove");
+                removeButtons.forEach((i) => {
+                    i.addEventListener("click", () => {
+                        removeTask(i.dataset.num)
+                    })
+                })
+            })
+        };
+
+        //新增的函式，最後將輸入資料清空
+        submit.addEventListener("click", (e) => {
+            e.preventDefault();
+            addTask(text.value);
+            renderTask(tasks);
+            text.value = "";
+        });
+
+        //移除的函式，這邊能使用 num 作為索引依據是因為在修改資料後會重新渲染，所以索引位置會改變，不用擔心在刪除一筆資料索引位置會對不到資料造成刪除錯誤或無法刪除，這邊與上周的作法會稍微不同。
+        function removeTask(num) {
+            tasks.splice(num, 1);
+            renderTask(tasks);
+        };
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
+        integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
+        crossorigin="anonymous"></script>
+    <script src='https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js'></script>
+    <script src="../js/nav.js"></script>
+</body>
+
+</html>

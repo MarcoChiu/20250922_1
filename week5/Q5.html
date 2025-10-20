@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>題目七：字串去左右空白</title>
+    <title>題目五：監聽表單</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link href="../css/style.css" rel="stylesheet">
@@ -12,43 +12,34 @@
 
 <body>
     <div class="container">
-        <h2>題目七：字串去左右空白</h2>
-        <p>✨keywords: trim()</p>
+        <h2>題目五：監聽表單</h2>
+        <p>請監聽以下表單，當 submit 事件觸發時阻止預設事件發生，並打印事件至終端。</p>
+        <form>
+            <input name="user" type="input">
+            <input type="submit" value="獲取資料">
+        </form>
         <pre class="prettyprint">
-// input 輸入
-trimString("    hi, mom!  ")
-trimString(" aa@gmail.com  ")
-
-// output 輸出
-"hi, mom!"
-"aa@gmail.com"
+  &lt;form&gt;
+    &lt;input name=&quot;user&quot; type=&quot;input&quot; required&gt;
+    &lt;input type=&quot;submit&quot; value=&quot;獲取資料&quot;&gt;
+  &lt;/form&gt;
     </pre>
 
         <h2>回答:</h2>
         <pre class="prettyprint">
-        function trimString(str) {
-            str = str.trim();
-            if (str.length > 0) {//不是NaN時才運算              
-                return str.trim();
-            } else {
-                console.log('無帶入文字');
-            }
-        }      
-        console.log(trimString("    hi, mom!  "));
-        console.log(trimString(" aa@gmail.com  "));
+        const form = document.querySelector(&quot;form&quot;);
+        form.addEventListener(&quot;submit&quot;, (e) =&gt; {
+            console.log('有submit動作');
+            e.preventDefault();
+        });
     </pre>
     </div>
     <script>
-        function trimString(str) {
-            str = str.trim();
-            if (str.length > 0) {//不是NaN時才運算              
-                return str.trim();
-            } else {
-                console.log('無帶入文字');
-            }
-        }
-        console.log(trimString("    hi, mom!  "));
-        console.log(trimString(" aa@gmail.com  "));
+        const form = document.querySelector("form");
+        form.addEventListener("submit", (e) => {
+            console.log('有submit動作');
+            e.preventDefault();
+        });
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
@@ -59,7 +50,6 @@ trimString(" aa@gmail.com  ")
         crossorigin="anonymous"></script>
     <script src='https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js'></script>
     <script src="../js/nav.js"></script>
-
 </body>
 
 </html>

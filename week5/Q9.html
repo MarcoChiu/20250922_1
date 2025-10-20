@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>題目九：頁籤</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link href="../css/style.css" rel="stylesheet">
+  <style>
+    /* 第九題 */
+
+    li{
+      list-style: none;
+    }
+
+    .tab-block {
+      display: inline-block;
+      border: solid 1px black;
+    }
+
+    .tab-block .tab-list {
+      padding: 0;
+      margin: 0;
+      display: flex;
+    }
+
+    .tab-block .tab-list li {
+      padding: 16px;
+      cursor: pointer;
+    }
+
+    .tab-block .tab-list li:hover {
+      background-color: gray;
+    }
+
+    .tab-block .tab-list .active {
+      background-color: gray;
+    }
+
+    .tab-block .tab-content .tab-content-item {
+      display: none;
+    }
+
+    .tab-block .tab-content .active {
+      display: block;
+    }
+
+    .tab-block .tab-content p {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2>題目九：頁籤</h2>
+    <p></p>
+    <div class="tab-block">
+      <ul class="tab-list">
+        <li data-item="Londan" class="tab-item active">Londan</li>
+        <li data-item="Paris" class="tab-item">Paris</li>
+        <li data-item="Tokyo" class="tab-item">Tokyo</li>
+      </ul>
+      <div class="tab-content">
+        <div data-content="Londan" class="tab-content-item active">
+          <p>Londan content</p>
+        </div>
+        <div data-content="Paris" class="tab-content-item">
+          <p>Paris content</p>
+        </div>
+        <div data-content="Tokyo" class="tab-content-item">
+          <p>Tokyo content</p>
+        </div>
+      </div>
+    </div>
+
+
+    <h2>回答:</h2>
+    <pre class="prettyprint">
+    const tabItem = document.querySelectorAll(&quot;.tab-item&quot;);
+    const tabContentItem = document.querySelectorAll(&quot;.tab-content-item&quot;);
+    tabItem.forEach((item) =&gt; {
+
+      //當點擊時單項(目前 tabItem 會被 forEach ，所以這邊會是單一項目)
+      item.addEventListener(&quot;click&quot;, () =&gt; {
+
+        //先將所有的 .active 移除( tabItem 是所有的項目)
+        tabItem.forEach((item) =&gt; {
+          item.classList.remove(&quot;active&quot;);
+        });
+
+        //該單一項目會增加 active 的 class
+        item.classList.add(&quot;active&quot;);
+        const now = item.dataset.item;
+
+        //接著這邊是對於內容的處理
+        tabContentItem.forEach((item) =&gt; {
+
+          //使用到 dataset 的技巧，可以向 HTML 的部分觀察，這邊新增了 data-content 的屬性，在 JS 就可以使用 dataset.content 去取得該內容資料，這邊使用判斷式找出該項目並將內容加上 active 呈現出來。
+          //內容與上相同，要先移除所有的 active 再加入新的，才會不讓過去點擊的持續存在。
+          if (now == item.dataset.content) {
+            tabContentItem.forEach((item) =&gt; {
+              item.classList.remove(&quot;active&quot;);
+            });
+            item.classList.add(&quot;active&quot;);
+          }
+        })
+      })
+    });
+    </pre>
+  </div>
+  <script>
+    const tabItem = document.querySelectorAll(".tab-item");
+    const tabContentItem = document.querySelectorAll(".tab-content-item");
+    tabItem.forEach((item) => {
+
+      //當點擊時單項(目前 tabItem 會被 forEach ，所以這邊會是單一項目)
+      item.addEventListener("click", () => {
+
+        //先將所有的 .active 移除( tabItem 是所有的項目)
+        tabItem.forEach((item) => {
+          item.classList.remove("active");
+        });
+
+        //該單一項目會增加 active 的 class
+        item.classList.add("active");
+        const now = item.dataset.item;
+
+        //接著這邊是對於內容的處理
+        tabContentItem.forEach((item) => {
+
+          //使用到 dataset 的技巧，可以向 HTML 的部分觀察，這邊新增了 data-content 的屬性，在 JS 就可以使用 dataset.content 去取得該內容資料，這邊使用判斷式找出該項目並將內容加上 active 呈現出來。
+          //內容與上相同，要先移除所有的 active 再加入新的，才會不讓過去點擊的持續存在。
+          if (now == item.dataset.content) {
+            tabContentItem.forEach((item) => {
+              item.classList.remove("active");
+            });
+            item.classList.add("active");
+          }
+        })
+      })
+    });
+
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
+    integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
+    crossorigin="anonymous"></script>
+  <script src='https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js'></script>
+  <script src="../js/nav.js"></script>
+</body>
+
+</html>
