@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>題目四：創造、插入 DOM</title>
+    <title>第四題：反轉陣列</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link href="../css/style.css" rel="stylesheet">
@@ -12,34 +12,60 @@
 
 <body>
     <div class="container">
-        <h2>題目四：創造、插入 DOM</h2>
-        <p>請製作一個按鈕，當點擊時會在 HTML 文件中新增以下內容：</p>
-        <button id="hellowbtn">新增你好世界</button>
-        <div class="hellowdiv"></div>
+        <h2>第四題：反轉陣列</h2>
+        <p>請製作一個函式可以回傳反轉後的陣列。</p>
+        <p>✨keywords：for</p>
         <pre class="prettyprint">
-// Todo 待編輯
-&lt;button&gt;新增你好世界&lt;/button&gt;
-// Document Added 新增
-&lt;p&gt;你好世界&lt;/p&gt;
+ // Todo 待處理
+function reverseArray(arr) {
+    //...
+}
+console.log(reverseArray([1,2,3,4,5]))
+
+// Output 輸出
+[5,4,3,2,1]
     </pre>
 
         <h2>回答:</h2>
         <pre class="prettyprint">
-        const hellowBtn = document.querySelector('#hellowbtn');
-        hellowBtn.addEventListener('click',function(e){
-            const createitem = document.createElement('p');
-            createitem.textContent="你好世界";
-            document.querySelector('.hellowdiv').appendChild(createitem);
-        });       
+        function reverseArray(arr) {
+            let answer = [];
+            //前面都是正序，這邊以反序的方式做迴圈，將起始值作為 length-1 ，因為索引值是從 0 開始，所以下方陣列最大的索引值為 4 ，最小值為 0 ，接著就能從後向前迴圈並 push 到陣列重新排序。
+            for (let i = arr.length - 1; i >= 0; i--) {
+                answer.push(arr[i]);
+            }
+            return answer;
+        }
+
+        // function reverseArray(arr) {
+        //    return arr.reverse();
+        // }
+        
+        console.log(reverseArray([1, 2, 3, 4, 5]))
+
+        // Output 輸出
+        //[5, 4, 3, 2, 1]
     </pre>
     </div>
     <script>
-        const hellowBtn = document.querySelector('#hellowbtn');
-        hellowBtn.addEventListener('click', function (e) {
-            const createitem = document.createElement('p');
-            createitem.textContent = "你好世界";
-            document.querySelector('.hellowdiv').appendChild(createitem);
-        });
+
+        function reverseArray(arr) {
+            let answer = [];
+            //前面都是正序，這邊以反序的方式做迴圈，將起始值作為 length-1 ，因為索引值是從 0 開始，所以下方陣列最大的索引值為 4 ，最小值為 0 ，接著就能從後向前迴圈並 push 到陣列重新排序。
+            for (let i = arr.length - 1; i >= 0; i--) {
+                answer.push(arr[i]);
+            }
+            return answer;
+        }
+
+        // function reverseArray(arr) {
+        //    return arr.reverse();
+        // }
+
+        console.log(reverseArray([1, 2, 3, 4, 5]))
+
+        // Output 輸出
+        //[5, 4, 3, 2, 1]
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"

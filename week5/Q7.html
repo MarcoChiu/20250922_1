@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>題目七：加減計數器(進階)</title>
+    <title>第七題：乘法表</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link href="../css/style.css" rel="stylesheet">
@@ -12,107 +12,75 @@
 
 <body>
     <div class="container">
-        <h2>題目七：加減計數器(進階)</h2>
-        <p>接續題目六，請製作並監聽一個表單，讓用戶可以修改一次增加與減少的數量。</p>
-        //
-        <ul>
-            <li>目前數字：<span class="nowTotal">0</span>，目前基礎：<span class="nowCount">0</span></li> // 按按鈕 +1
-            <li><button class="add1">+1</button></li> // 按按鈕 +1
-            <li><button class="reset">Reset</button></li> // 按按鈕重設為 0
-            <li><button class="minus1">-1</button></li> // 按按鈕 -1
-        </ul>
-        <form>
-            <input type="number" class="counterMultiplier" min="0" name="counterMultiplier" placeholder="請輸入計數器要乘多少倍"
-                value="1" required>
-            <input type="submit" value="提交倍數">
-        </form>
+        <h2>第七題：乘法表</h2>
+        <p>請製作一個可以打印 a x b 大小的乘法表的函式：</p>
+        <p>✨keywords：nested for loops</p>
         <pre class="prettyprint">
-    &lt;form&gt;
-        &lt;input type=&quot;number&quot; min=&quot;0&quot; name=&quot;counterMultiplier&quot; placeholder=&quot;請輸入計數器要乘多少倍&quot; required&gt;
-        &lt;input type=&quot;submit&quot; value=&quot;提交倍數&quot;&gt;
-    &lt;/form&gt;
+// Input 輸入
+console.log(tableAxB(9, 9))
+
+// Output 輸出
+"
+1 * 1 = 1
+1 * 2 = 2
+1 * 3 = 3
+1 * 4 = 4
+1 * 5 = 5
+1 * 6 = 6
+1 * 7 = 7
+1 * 8 = 8
+1 * 9 = 9
+//
+//... 省略 ...
+//
+9 * 1 = 9
+9 * 2 = 18
+9 * 3 = 27
+9 * 4 = 36
+9 * 5 = 45
+9 * 6 = 54
+9 * 7 = 63
+9 * 8 = 72
+9 * 9 = 81
+"
     </pre>
 
         <h2>回答:</h2>
         <pre class="prettyprint">
-        const nowCount = document.querySelector('.nowCount');
-        const nowTotal = document.querySelector('.nowTotal');
-
-        const add1 = document.querySelector('.add1');
-        const reset = document.querySelector('.reset');
-        const minus1 = document.querySelector('.minus1');
-
-        const form = document.querySelector("form");
-        const counterMultiplier = document.querySelector('.counterMultiplier');
-
-        let count = 0;
-        add1.addEventListener("click", function () {
-            ++count;
-            toTotal();
-        });
-        reset.addEventListener("click", function () {
-            count = 0;
-            toTotal();
-        });
-        minus1.addEventListener("click", function () {
-            --count;
-            toTotal();
-        });
-
-        form.addEventListener("submit", (e) => {
-            toTotal();
-            e.preventDefault();           
-        });
-
-        function toTotal() {
-            const cm = counterMultiplier.value;       
-            if (isNaN(cm)) {
-                window.alert('倍率有錯!!');
+        function tableAxB(x, y) {
+            let answer = "";
+            for (let i = 1; i <= x; i++) {
+                for (let j = 1; j <= y; j++) {
+                    answer += `${i} * ${j} = ${i * j}\n`;
+                }
             }
-            nowCount.textContent = count;
-            nowTotal.textContent = count * parseInt(cm);
+            return answer;
         }
+
+        // function tableAxB(a, b) {
+        //     return `${a} * ${b} =  ${eval(a * b)}`;
+        // }
+
+        console.log(tableAxB(9, 9));
     </pre>
     </div>
     <script>
-        const nowCount = document.querySelector('.nowCount');
-        const nowTotal = document.querySelector('.nowTotal');
 
-        const add1 = document.querySelector('.add1');
-        const reset = document.querySelector('.reset');
-        const minus1 = document.querySelector('.minus1');
-
-        const form = document.querySelector("form");
-        const counterMultiplier = document.querySelector('.counterMultiplier');
-
-        let count = 0;
-        add1.addEventListener("click", function () {
-            ++count;
-            toTotal();
-        });
-        reset.addEventListener("click", function () {
-            count = 0;
-            toTotal();
-        });
-        minus1.addEventListener("click", function () {
-            --count;
-            toTotal();
-        });
-
-        form.addEventListener("submit", (e) => {
-            toTotal();
-            e.preventDefault();
-        });
-
-        function toTotal() {
-            const cm = counterMultiplier.value;
-            if (isNaN(cm)) {
-                window.alert('倍率有錯!!');
+        function tableAxB(x, y) {
+            let answer = "";
+            for (let i = 1; i <= x; i++) {
+                for (let j = 1; j <= y; j++) {
+                    answer += `${i} * ${j} = ${i * j}\n`;
+                }
             }
-            nowCount.textContent = count;
-            nowTotal.textContent = count * parseInt(cm);
+            return answer;
         }
 
+        // function tableAxB(a, b) {
+        //     return `${a} * ${b} =  ${eval(a * b)}`;
+        // }
+
+        console.log(tableAxB(9, 9));
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"

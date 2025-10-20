@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>題目六：加減計數器</title>
+    <title>第六題：陣列計數</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link href="../css/style.css" rel="stylesheet">
@@ -12,75 +12,79 @@
 
 <body>
     <div class="container">
-        <h2>題目六：加減計數器</h2>
-        <p>請製作一個計數器，具有增加、減少、重設按鈕以及顯示目前數字的功能。</p>
-        <div>
-            <div class="count">0</div> // 目前數字
-            <ul>
-                <li><button class="add1">+1</button></li> // 按按鈕 +1
-                <li><button class="reset">Reset</button></li> // 按按鈕重設為 0
-                <li><button class="minus1">-1</button></li> // 按按鈕 -1
-            </ul>
-        </div>
+        <h2>第六題：陣列計數</h2>
+        <p>請製作一個函式可以回傳輸入陣列的項目的數量。</p>
+        <p>✨keywords：for</p>
         <pre class="prettyprint">
-&lt;div&gt;
-    &lt;div&gt;0&lt;/div&gt; // 目前數字
-    &lt;ul&gt;
-      &lt;li&gt;&lt;button&gt;+1&lt;/button&gt;&lt;/li&gt; // 按按鈕 +1
-      &lt;li&gt;&lt;button&gt;Reset&lt;/button&gt;&lt;/li&gt; // 按按鈕重設為 0
-      &lt;li&gt;&lt;button&gt;-1&lt;/button&gt;&lt;/li&gt; // 按按鈕 -1
-    &lt;/ul&gt;
-&lt;/div&gt;
+// Todo 待處理
+function countArray(arr) {
+    
+}
+
+console.log(countArray(["A","B","A","C","D","E","E"]))
+
+// Output 輸出
+{ A: 2, B: 1, C: 1, D: 1, E: 2 }
     </pre>
 
         <h2>回答:</h2>
         <pre class="prettyprint">
-        const add1 = document.querySelector('.add1');
-        const reset = document.querySelector('.reset');
-        const minus1 = document.querySelector('.minus1');
-        const count = document.querySelector('.count');
-        let total = 0;
-        add1.addEventListener("click", function () {
-            ++total;
-            toTotal();
-        });
-        reset.addEventListener("click", function () {
-            total = 0;
-            toTotal();
-        });
-        minus1.addEventListener("click", function () {
-            --total;
-            toTotal();
-        });
+        function countArray(arr) {
+            let answer = {};
+            for (let i = 0; i < arr.length; i++) {
+                //若 answer 沒有的 arr[i] ， arr[i] 會給予一個起始值建立資料。
+                if (!answer[arr[i]]) {
+                    answer[arr[i]] = 1;
 
-        function toTotal() {
-            count.textContent = total;
+                    //否則會在有的資料內增加一筆。
+                } else {
+                    answer[arr[i]]++;
+                }
+            }
+            return answer;
         }
+
+        // function countArray(arr) {
+        //   return arr.reduce((acc, char) => {
+        //         acc[char] = (acc[char] || 0) + 1;
+        //         return acc;
+        //     }, {});
+        // }
+
+        console.log(countArray(["A", "B", "A", "C", "D", "E", "E"]))
+
+        // Output 輸出
+        //{ A: 2, B: 1, C: 1, D: 1, E: 2 }
     </pre>
     </div>
     <script>
-        const add1 = document.querySelector('.add1');
-        const reset = document.querySelector('.reset');
-        const minus1 = document.querySelector('.minus1');
-        const count = document.querySelector('.count');
-        let total = 0;
-        add1.addEventListener("click", function () {
-            ++total;
-            toTotal();
-        });
-        reset.addEventListener("click", function () {
-            total = 0;
-            toTotal();
-        });
-        minus1.addEventListener("click", function () {
-            --total;
-            toTotal();
-        });
 
-        function toTotal() {
-            count.textContent = total;
+        function countArray(arr) {
+            let answer = {};
+            for (let i = 0; i < arr.length; i++) {
+                //若 answer 沒有的 arr[i] ， arr[i] 會給予一個起始值建立資料。
+                if (!answer[arr[i]]) {
+                    answer[arr[i]] = 1;
+
+                    //否則會在有的資料內增加一筆。
+                } else {
+                    answer[arr[i]]++;
+                }
+            }
+            return answer;
         }
 
+        // function countArray(arr) {
+        //   return arr.reduce((acc, char) => {
+        //         acc[char] = (acc[char] || 0) + 1;
+        //         return acc;
+        //     }, {});
+        // }
+
+        console.log(countArray(["A", "B", "A", "C", "D", "E", "E"]))
+
+        // Output 輸出
+        //{ A: 2, B: 1, C: 1, D: 1, E: 2 }
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"

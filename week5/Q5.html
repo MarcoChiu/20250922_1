@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>題目五：監聽表單</title>
+    <title>第五題：陣列最大值</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link href="../css/style.css" rel="stylesheet">
@@ -12,34 +12,73 @@
 
 <body>
     <div class="container">
-        <h2>題目五：監聽表單</h2>
-        <p>請監聽以下表單，當 submit 事件觸發時阻止預設事件發生，並打印事件至終端。</p>
-        <form>
-            <input name="user" type="input">
-            <input type="submit" value="獲取資料">
-        </form>
+        <h2>第五題：陣列最大值</h2>
+        <p>請製作一個函式可以回傳陣列中最大的值。</p>
+        <p>✨keywords：for</p>
         <pre class="prettyprint">
-  &lt;form&gt;
-    &lt;input name=&quot;user&quot; type=&quot;input&quot; required&gt;
-    &lt;input type=&quot;submit&quot; value=&quot;獲取資料&quot;&gt;
-  &lt;/form&gt;
+// Todo 待處理
+function getMaxValue(arr) {
+    
+}
+console.log(getMaxValue([1,5,8,2]))
+// Output 輸出
+8
     </pre>
 
         <h2>回答:</h2>
         <pre class="prettyprint">
-        const form = document.querySelector(&quot;form&quot;);
-        form.addEventListener(&quot;submit&quot;, (e) =&gt; {
-            console.log('有submit動作');
-            e.preventDefault();
-        });
+        function getMaxValue(arr) {
+            //將變數先歸零。
+            let max = 0;
+
+            //迴圈取得 array 的內容。
+            for (let i = 0; i < arr.length; i++) {
+                //若 arr[i] 的值大於上方變數，變數會重新賦值，若小於則不會有改變。
+                if (arr[i] > max) {
+                    max = arr[i];
+                }
+            }
+            return max;
+        }
+
+        // function getMaxValue(arr) {
+        //     return Math.max(...arr);
+        // }
+
+        //const users = [{ name: 'Alice', age: 30 }, { name: 'Bob', age: 25 }, { name: 'Charlie', age: 35 }];
+        //return Math.max(...users.map(user => user.age));
+
+        console.log(getMaxValue([1, 5, 8, 2]))
+        // Output 輸出
+        //8
     </pre>
     </div>
     <script>
-        const form = document.querySelector("form");
-        form.addEventListener("submit", (e) => {
-            console.log('有submit動作');
-            e.preventDefault();
-        });
+
+        function getMaxValue(arr) {
+            //將變數先歸零。
+            let max = 0;
+
+            //迴圈取得 array 的內容。
+            for (let i = 0; i < arr.length; i++) {
+                //若 arr[i] 的值大於上方變數，變數會重新賦值，若小於則不會有改變。
+                if (arr[i] > max) {
+                    max = arr[i];
+                }
+            }
+            return max;
+        }
+
+        // function getMaxValue(arr) {
+        //     return Math.max(...arr);
+        // }
+
+        //const users = [{ name: 'Alice', age: 30 }, { name: 'Bob', age: 25 }, { name: 'Charlie', age: 35 }];
+        //return Math.max(...users.map(user => user.age));
+
+        console.log(getMaxValue([1, 5, 8, 2]))
+        // Output 輸出
+        //8
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
